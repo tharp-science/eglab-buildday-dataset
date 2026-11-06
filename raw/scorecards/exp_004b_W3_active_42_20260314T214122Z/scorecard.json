@@ -1,0 +1,38 @@
+{
+  "experiment_id": "exp_004b_W3_active",
+  "seed": 42,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.03769230769230769,
+    "authority_concentration_gini_start": 0.01941176470588224,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0282,
+    "interpretive_drift_rate": 0.49908,
+    "total_state_transitions": 500622,
+    "total_reversions": 249540,
+    "cycling_events_count": 622,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": [
+    {
+      "id": "H11b_W3_gini_start",
+      "description": "Gini_start = 33/1700 \u2248 0.019412 after tick 0. One node wins all 100 claims and reaches W=3.0 cap after 40 wins. Distribution: [3.0 \u00d7 1, 1.0 \u00d7 99].\n",
+      "metric": "authority_concentration_gini_start",
+      "predicted_direction": "",
+      "observed_value": 0.01941176470588224,
+      "result": "untestable"
+    },
+    {
+      "id": "H11b_W3_gini_end",
+      "description": "Gini_end = 49/1300 \u2248 0.037692 at equilibrium. Two dominant nodes at W=3.0; 98 nodes at w\u2080=1.0. Primary falsification condition for H11 at W=3.0.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "",
+      "observed_value": 0.03769230769230769,
+      "result": "untestable"
+    }
+  ]
+}

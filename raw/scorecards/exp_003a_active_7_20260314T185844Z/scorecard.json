@@ -1,0 +1,38 @@
+{
+  "experiment_id": "exp_003a_active",
+  "seed": 7,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.07259259259259254,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0302,
+    "interpretive_drift_rate": 0.499042,
+    "total_state_transitions": 500658,
+    "total_reversions": 249521,
+    "cycling_events_count": 658,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": [
+    {
+      "id": "H10a",
+      "description": "Founding proportion reduction lowers authority equilibrium: Gini delta (active \u2212 null) is less than 0.073 at equilibrium. Tests whether temporal position (founding proportion) governs the fixed point.\n",
+      "metric": "authority_concentration_gini_delta_from_null",
+      "predicted_direction": "< 0.073",
+      "observed_value": null,
+      "result": "untested"
+    },
+    {
+      "id": "H10b",
+      "description": "System remains alive: total state transitions exceed 10\u00d7 claim count. Confirms cycling mechanism is active at reduced founding proportion.\n",
+      "metric": "total_state_transitions",
+      "predicted_direction": "> 1000",
+      "observed_value": 500658,
+      "result": "supported"
+    }
+  ]
+}

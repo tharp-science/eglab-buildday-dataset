@@ -1,0 +1,10 @@
+{
+  "run_id": "exp_007_boundary_densify_g0_x0_1031_20260319T002928Z",
+  "experiment_id": "exp_007_boundary_densify_g0_x0",
+  "seed": 1031,
+  "created_at": "2026-03-22T18:00:21.421507+00:00",
+  "started_at_hint": "20260319T002928Z",
+  "source_config_path": null,
+  "config": null,
+  "scorecard_source": null
+}

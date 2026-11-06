@@ -1,0 +1,32 @@
+{
+  "experiment_id": "exp_007_stage1_boundary_sharpen_g0_x0",
+  "seed": 5113,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.07259259259259254,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.031,
+    "interpretive_drift_rate": 0.499028,
+    "total_state_transitions": 500663,
+    "total_reversions": 249514,
+    "forward_channel_transitions": 250486,
+    "reversion_channel_transitions": 249514,
+    "channel_top1_owner_overlap": 0.0,
+    "channel_top1_owner_overlap_early": 0.0,
+    "channel_specialization_tvd": 0.5054617219525901,
+    "forward_channel_top1_share": 0.9992015521825571,
+    "reversion_channel_top1_share": 0.506260169770033,
+    "forward_capture_tick_top1_ge_threshold": 0,
+    "reversion_capture_tick_top1_ge_threshold": 4,
+    "channel_capture_share_threshold": 0.8,
+    "channel_early_horizon_tick": 500,
+    "cycling_events_count": 663,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": []
+}

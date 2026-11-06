@@ -1,0 +1,4 @@
+design_id,slug,version,title,design_class,status,variable_definitions,topology,schema_version,created_at,updated_at,legacy_refs
+design.grid-07.mechanism-isolation,grid-07-mechanism-isolation,1,Grid-07 Mechanism Isolation,ordinal-manifold,active,[],{},lineage.v1,2026-03-28 20:25:29.160207+00,2026-03-28 20:25:29.160207+00,[]
+design.grid-07.boundary-mapping,grid-07-boundary-mapping,1,Grid-07 Boundary Mapping,ordinal-manifold,active,[],{},lineage.v1,2026-03-28 20:25:29.160207+00,2026-03-28 20:25:29.160207+00,[]
+design.legacy.pre-grid,legacy-pre-grid,1,Legacy Pre-Grid,other,active,[],{},lineage.v1,2026-03-28 20:25:29.160207+00,2026-03-28 20:25:29.160207+00,[]

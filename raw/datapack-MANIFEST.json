@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-11-02T04:17:56+00:00",
+  "host": "epistemic-lab",
+  "run_dirs": 705,
+  "scorecards": 703,
+  "vault_markdown_files": 138,
+  "db_runs": "705",
+  "excluded": {
+    "event_logs": "632G logical (14 GB on ZFS) — rescore on the host instead"
+  }
+}

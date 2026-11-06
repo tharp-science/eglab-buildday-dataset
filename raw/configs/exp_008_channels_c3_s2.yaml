@@ -1,0 +1,136 @@
+# Grid-07 H6 — independent channel count
+# Cohort: grid-07-h6-channel-count
+# Hypothesis: hyp.grid07.h6-multi-channel
+#   "Does multiplicity scale with independent channel count rather than raw channel count?"
+#
+# Design: hold N=100, claims, topology, ticks and all primitives constant.
+# Vary ONLY the number of DISJOINT eligibility classes, by setting authority_types
+# and reversibility_tolerance per node group.
+#
+# Eligibility structure derived from source (engine/primitives/authority.py
+# TRANSITION_AUTHORITY + engine/primitives/reversibility.py tolerance gate >= 0.3).
+# Note authority.py uses ANY-match, not all-match, on the required type list.
+#   control/temporal transitions : contested->prov_accepted, prov->operationalised, operationalised->archived
+#   signal/perceptual transitions: unknown->hyp, hyp->contested, operationalised->revisable, revisable->contested
+#   reversion (operationalised->revisable) additionally requires reversibility_tolerance >= 0.3
+#
+# Prediction (H6): equilibrium k equals the number of disjoint classes, so
+# authority_concentration_gini tracks the closed form G(N=100, k, W=5.0, w0=1.0):
+#   k=1 -> 99/2600  ~= 0.038077
+#   k=2 -> 49/675   ~= 0.072593
+#   k=3 -> above the k=2 value
+# Falsified if gini is invariant to class count, or tracks raw channel count instead.
+
+experiment:
+  successor_selection: archived_first  # INT-173: required, no engine default
+  id: exp_008_channels_c3
+  seed: 2
+  description: >
+    Three disjoint eligibility classes. Group X holds control/temporal only; group Y holds signal/perceptual and clears the tolerance gate; group Z holds signal/perceptual but is below the gate, so it can act on forward signal/perceptual transitions but never propose a reversion. Predicted equilibrium k = 3.
+  ticks: 5000
+  record_interval: 50
+
+node_groups:
+  - persona: peripheral_node
+    id_prefix: "ct_"
+    count: 34
+    authority_types: [control, temporal]
+    reversibility_tolerance: 0.1
+  - persona: peripheral_node
+    id_prefix: "spr_"
+    count: 33
+    authority_types: [signal, perceptual]
+    reversibility_tolerance: 0.65
+  - persona: peripheral_node
+    id_prefix: "spn_"
+    count: 33
+    authority_types: [signal, perceptual]
+    reversibility_tolerance: 0.1
+
+claim_groups:
+  - id_prefix: "cl_easy_true_"
+    count: 12
+    initial_state: unknown
+    ground_truth: true
+    difficulty: 0.2
+    ambiguity: 0.2
+  - id_prefix: "cl_easy_false_"
+    count: 20
+    initial_state: unknown
+    ground_truth: false
+    difficulty: 0.2
+    ambiguity: 0.2
+  - id_prefix: "cl_med_true_"
+    count: 14
+    initial_state: unknown
+    ground_truth: true
+    difficulty: 0.5
+    ambiguity: 0.5
+  - id_prefix: "cl_med_false_"
+    count: 20
+    initial_state: unknown
+    ground_truth: false
+    difficulty: 0.5
+    ambiguity: 0.5
+  - id_prefix: "cl_hard_true_"
+    count: 9
+    initial_state: unknown
+    ground_truth: true
+    difficulty: 0.8
+    ambiguity: 0.7
+  - id_prefix: "cl_hard_false_"
+    count: 25
+    initial_state: unknown
+    ground_truth: false
+    difficulty: 0.8
+    ambiguity: 0.7
+
+network:
+  topology: small_world
+  k: 6
+  p: 0.1
+
+primitives:
+  boundary: true
+  lineage:
+    enabled: true
+    retention_probability: 1.0
+  authority: true
+  mediation:
+    enabled: true
+    mode: structured
+  confidence:
+    enabled: true
+    threshold_mean: 0.5
+    threshold_variance: 0.1
+  reversibility: true
+  observation:
+    enabled: false
+
+trust_network:
+  dynamic: false
+  update_rule: null
+  initial_weights: uniform
+
+dynamics:
+  revisability_rate: 0.02
+  stability_window_fraction: 0.005
+  min_ticks_before_archive: 100
+
+events: []
+
+analysis:
+  channel_capture_share_threshold: 0.8
+  channel_early_horizon_tick: 500
+
+hypotheses:
+  - id: H1
+    description: "Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593)."
+    metric: authority_concentration_gini
+    predicted_direction: increasing
+    window: [4000, 5000]
+  - id: H2
+    description: "The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims."
+    metric: total_state_transitions
+    predicted_direction: increasing
+    window: [0, 5000]

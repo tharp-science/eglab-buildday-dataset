@@ -1,0 +1,57 @@
+{
+  "experiment_id": "exp_001c_extended_ticks",
+  "seed": 42,
+  "ticks": 2000,
+  "metrics": {
+    "authority_concentration_gini": 0.17460317460317465,
+    "authority_concentration_gini_start": 0.057142857142857384,
+    "epistemic_accuracy": 0.7,
+    "epistemic_stability_index": 1.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": true,
+    "contested_claim_resolution_rate": 0.005,
+    "interpretive_drift_rate": 0.0,
+    "total_state_transitions": 40,
+    "total_reversions": 0,
+    "forward_channel_transitions": 40,
+    "reversion_channel_transitions": 0,
+    "channel_top1_owner_overlap": null,
+    "channel_top1_owner_overlap_early": null,
+    "channel_specialization_tvd": null,
+    "forward_channel_top1_share": 0.75,
+    "reversion_channel_top1_share": null,
+    "forward_capture_tick_top1_ge_threshold": 0,
+    "reversion_capture_tick_top1_ge_threshold": null,
+    "channel_capture_share_threshold": 0.8,
+    "channel_early_horizon_tick": 500,
+    "cycling_events_count": 0,
+    "claims_operationalised": 10,
+    "total_claims": 10
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "description": "epistemic_accuracy increases above 0.6 by tick 2000, diverging from the null baseline (Exp-000, 0.6 at 500 ticks). If full governance is functioning correctly, accurate claims should accumulate at operationalised state while inaccurate claims face more reversions, producing accuracy above chance over sufficient time.\n",
+      "metric": "epistemic_accuracy",
+      "predicted_direction": "increasing",
+      "observed_value": 0.7,
+      "result": "untested"
+    },
+    {
+      "id": "H2",
+      "description": "authority_concentration_gini continues to increase beyond the Exp-001 value of 0.226, consistent with authority gravity as a compounding mechanism that accumulates over time. Predicted value at tick 2000: > 0.4.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "increasing",
+      "observed_value": 0.17460317460317465,
+      "result": "supported"
+    },
+    {
+      "id": "H3",
+      "description": "epistemic_stability_index remains at or near 1.0, confirming that full governance sustains stability over extended runs rather than degrading through authority gravity or other accumulation effects.\n",
+      "metric": "epistemic_stability_index",
+      "predicted_direction": "flat",
+      "observed_value": 1.0,
+      "result": "untested"
+    }
+  ]
+}

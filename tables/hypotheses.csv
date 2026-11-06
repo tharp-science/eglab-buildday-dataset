@@ -1,0 +1,11 @@
+id,status,campaign_id,created_at,updated_at,metadata_json
+hyp.grid07.h4-channel-symmetry,working,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.772167+00,"{""source_note_type"": ""hypothesis""}"
+hyp.grid07.h5-drift-interaction,working,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.772167+00,"{""source_note_type"": ""hypothesis""}"
+hyp.grid07.h6-multi-channel,working,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.772167+00,"{""source_note_type"": ""hypothesis""}"
+hyp.grid07.h7-reversibility-stabilization,working,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.772167+00,"{""source_note_type"": ""hypothesis""}"
+hyp.grid07.h8-named-space-ambiguity-not-intrinsic,working,camp.basin-boundary-mapping.na-diagnostic-resolution.01,,2026-07-28 11:54:06.719354+00,"{""source_note_type"": ""lab_note""}"
+hyp.grid07.h9-merge-not-dynamic-quiescence,active,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.772167+00,"{""source_note_type"": ""hypothesis""}"
+hyp.grid07.h10-g0-anchor-bistability,active,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.774167+00,"{""source_note_type"": ""hypothesis""}"
+hyp.grid07.h1-eligibility-overlap-threshold,active,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.774167+00,"{""source_note_type"": ""hypothesis""}"
+hyp.grid07.h2-basin-width,active,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.774167+00,"{""source_note_type"": ""hypothesis""}"
+hyp.grid07.h3-early-capture,working,camp.basin-boundary-mapping.transition-region-clarification.01,,2026-03-23 03:15:26.774167+00,"{""source_note_type"": ""hypothesis""}"

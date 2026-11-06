@@ -1,0 +1,64 @@
+# EXP-007 mechanism-isolation execution batching manifest
+# planning artifact: no runs executed by this file
+
+execution:
+  batch_id: exp_007_mechanism_isolation_execution
+  source_manifest: configs/exp_007_mechanism_isolation_manifest.yaml
+  total_runs: 33
+  policy:
+    autonomous_between_checkpoints: false
+    halt_only_at: [M0, M1, M2]
+
+strata:
+  all: [base, conf_relax, elig_narrow]
+
+points:
+  anchors: [G1, G3]
+  hinge: [G2]
+
+seeds:
+  anchors: [2, 8, 16]
+  hinge: [2, 8, 16, 23, 42]
+
+batches:
+  - id: M0
+    type: config_preflight
+    runs: 0
+    strata: [base, conf_relax, elig_narrow]
+    points: [G1, G2, G3]
+    checkin: M0
+    halt_conditions:
+      - signature_mismatch
+      - invalid_local_override
+
+  - id: M1
+    type: anchor_plus_hinge_pilot
+    runs: 33
+    strata: [base, conf_relax, elig_narrow]
+    points: [G1, G2, G3]
+    checkin: M1
+    halt_conditions:
+      - run_failure
+      - missing_required_scorecard_metrics
+      - unexpected_gini_shift_outside_expected_band
+
+  - id: M2
+    type: interpretation_gate
+    runs: 0
+    checkin: M2
+    required_outputs:
+      - basin_probabilities_by_stratum
+      - g2_boundary_shift_assessment
+      - gini_winner_decoupling_assessment
+      - transition_blocked_path_summary
+
+checkpoints:
+  - id: M0
+    required: true
+    purpose: preflight_integrity
+  - id: M1
+    required: true
+    purpose: mechanism_isolation_readout
+  - id: M2
+    required: true
+    purpose: campaign_interpretation_gate

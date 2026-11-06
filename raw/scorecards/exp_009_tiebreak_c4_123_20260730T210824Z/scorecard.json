@@ -1,0 +1,91 @@
+{
+  "experiment_id": "exp_009_tiebreak_c4",
+  "seed": 123,
+  "ticks": 5000,
+  "successor_selection": "seeded_random",
+  "metrics": {
+    "authority_concentration_gini": 0.07259259259259254,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0268,
+    "mediation_load": 23.39,
+    "interpretive_drift_rate": 0.49911,
+    "total_state_transitions": 500597,
+    "total_reversions": 249555,
+    "forward_channel_transitions": 250445,
+    "reversion_channel_transitions": 249555,
+    "channel_top1_owner_overlap": 0.0,
+    "channel_top1_owner_overlap_early": 0.0,
+    "channel_specialization_tvd": 0.9992014214697837,
+    "forward_channel_top1_share": 0.9992014214697837,
+    "reversion_channel_top1_share": 1.0,
+    "forward_capture_tick_top1_ge_threshold": 0,
+    "reversion_capture_tick_top1_ge_threshold": 4,
+    "channel_capture_share_threshold": 0.8,
+    "channel_early_horizon_tick": 500,
+    "cycling_events_count": 597,
+    "claims_operationalised": 100,
+    "false_consensus_count": 65,
+    "false_consensus_rate": 0.65,
+    "observation_error_rate": 0.0,
+    "total_claims": 100,
+    "post_shock_recovery_ticks": null,
+    "forward_total_early": 25210,
+    "ct_forward_share": 0.9992014214697837,
+    "ct_forward_share_early": 0.9920666402221341,
+    "auth_type_forward_counts": {
+      "signal": 200,
+      "control": 250245
+    },
+    "auth_type_forward_counts_early": {
+      "signal": 200,
+      "control": 25010
+    },
+    "stripped_group_forward_share": null,
+    "stripped_group_forward_share_early": null,
+    "node_group_forward_counts_early": {
+      "fn_": 0,
+      "pn_": 0,
+      "mn_": 25010,
+      "sp_": 200,
+      "fm_": 0
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "description": "Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.\n",
+      "metric": "total_state_transitions",
+      "predicted_direction": "> 0",
+      "observed_value": 500597,
+      "result": "supported"
+    },
+    {
+      "id": "H2",
+      "description": "Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "> 0",
+      "observed_value": 0.07259259259259254,
+      "result": "supported"
+    },
+    {
+      "id": "H3",
+      "description": "Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].\n",
+      "metric": "total_state_transitions",
+      "predicted_direction": "> 0",
+      "observed_value": 500597,
+      "result": "supported"
+    },
+    {
+      "id": "H4",
+      "description": "Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "> 0",
+      "observed_value": 0.07259259259259254,
+      "result": "supported"
+    }
+  ]
+}

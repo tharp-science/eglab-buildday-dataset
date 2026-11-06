@@ -1,0 +1,30 @@
+{
+  "experiment_id": "exp_003b_active",
+  "seed": 123,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.07259259259259254,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0268,
+    "interpretive_drift_rate": 0.49911,
+    "total_state_transitions": 500597,
+    "total_reversions": 249555,
+    "cycling_events_count": 597,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": [
+    {
+      "id": "H10_control",
+      "description": "Control replication: Gini delta \u2248 0.073 at equilibrium. Confirms Batch 03 apparatus reproduces the Batch 02 fixed point before interpreting the 4/100 and 16/100 conditions.\n",
+      "metric": "authority_concentration_gini_delta_from_null",
+      "predicted_direction": "\u2248 0.073",
+      "observed_value": null,
+      "result": "untested"
+    }
+  ]
+}

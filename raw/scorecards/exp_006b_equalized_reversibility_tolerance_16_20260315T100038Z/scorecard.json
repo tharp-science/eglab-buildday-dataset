@@ -1,0 +1,46 @@
+{
+  "experiment_id": "exp_006b_equalized_reversibility_tolerance",
+  "seed": 16,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.03807692307692312,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0278,
+    "interpretive_drift_rate": 0.49909,
+    "total_state_transitions": 500615,
+    "total_reversions": 249545,
+    "cycling_events_count": 615,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": [
+    {
+      "id": "H14a_merge_branch",
+      "description": "If equalizing reversibility tolerance collapses channel ownership, endpoint should move toward k=1 region.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "<= 0.05",
+      "observed_value": 0.03807692307692312,
+      "result": "supported"
+    },
+    {
+      "id": "H14b_split_branch",
+      "description": "If channel split persists despite equalized tolerance, endpoint should remain in k=2-like region.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": ">= 0.07",
+      "observed_value": 0.03807692307692312,
+      "result": "falsified"
+    },
+    {
+      "id": "H14c_reversion_channel_active",
+      "description": "Reversion pathway remains active in this condition.\n",
+      "metric": "total_reversions",
+      "predicted_direction": "> 0",
+      "observed_value": 249545,
+      "result": "supported"
+    }
+  ]
+}

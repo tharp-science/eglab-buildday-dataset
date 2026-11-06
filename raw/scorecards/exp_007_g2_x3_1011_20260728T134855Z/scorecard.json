@@ -1,0 +1,59 @@
+{
+  "experiment_id": "exp_007_g2_x3",
+  "seed": 1011,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.07259259259259254,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.027,
+    "mediation_load": 24.33,
+    "interpretive_drift_rate": 0.499116,
+    "total_state_transitions": 500589,
+    "total_reversions": 249558,
+    "forward_channel_transitions": 250442,
+    "reversion_channel_transitions": 249558,
+    "channel_top1_owner_overlap": 1.0,
+    "channel_top1_owner_overlap_early": 1.0,
+    "channel_specialization_tvd": 0.4963804243978437,
+    "forward_channel_top1_share": 0.9992014119037541,
+    "reversion_channel_top1_share": 0.5028209875059104,
+    "forward_capture_tick_top1_ge_threshold": 0,
+    "reversion_capture_tick_top1_ge_threshold": 4,
+    "channel_capture_share_threshold": 0.8,
+    "channel_early_horizon_tick": 500,
+    "cycling_events_count": 589,
+    "claims_operationalised": 100,
+    "false_consensus_count": 65,
+    "false_consensus_rate": 0.65,
+    "observation_error_rate": 0.0,
+    "total_claims": 100,
+    "post_shock_recovery_ticks": null,
+    "forward_total_early": 25216,
+    "ct_forward_share": 0.9992014119037541,
+    "ct_forward_share_early": 0.9920685279187818,
+    "auth_type_forward_counts": {
+      "signal": 200,
+      "temporal": 250242
+    },
+    "auth_type_forward_counts_early": {
+      "signal": 200,
+      "temporal": 25016
+    },
+    "stripped_group_forward_share": null,
+    "stripped_group_forward_share_early": null,
+    "node_group_forward_counts_early": {
+      "fnl_": 0,
+      "fnh_": 0,
+      "pn_": 25016,
+      "mn_": 0,
+      "sp_": 200,
+      "fml_": 0,
+      "fmh_": 0
+    }
+  },
+  "hypotheses": []
+}

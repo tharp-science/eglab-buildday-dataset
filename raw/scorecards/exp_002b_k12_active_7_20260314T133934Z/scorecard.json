@@ -1,0 +1,54 @@
+{
+  "experiment_id": "exp_002b_k12_active",
+  "seed": 7,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.07259259259259254,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0302,
+    "interpretive_drift_rate": 0.499042,
+    "total_state_transitions": 500658,
+    "total_reversions": 249521,
+    "cycling_events_count": 658,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "description": "Gini delta (active minus null, k=12) exceeds the k=6 result (0.073). If H7 holds, doubling interaction density should produce proportionally stronger authority concentration.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "increasing",
+      "observed_value": 0.07259259259259254,
+      "result": "supported"
+    },
+    {
+      "id": "H2",
+      "description": "Gini trajectory is still rising in the final 1000 ticks, consistent with authority gravity not yet saturating at k=12.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "increasing",
+      "observed_value": 0.07259259259259254,
+      "result": "supported"
+    },
+    {
+      "id": "H3",
+      "description": "ESI and drift rate are within the same order of magnitude as Exp-002 (seed 42, B1/B3-fixed: drift = 0.497, ESI = 0.0). k variation should not systematically change epistemic contention if the interaction-density hypothesis is specifically about structural gravity, not epistemic dynamics.\n",
+      "metric": "interpretive_drift_rate",
+      "predicted_direction": "flat",
+      "observed_value": 0.499042,
+      "result": "untested"
+    },
+    {
+      "id": "H4",
+      "description": "Cycling sustains live system: b3_absorbing_state_artefact remains false",
+      "metric": "b3_absorbing_state_artefact",
+      "predicted_direction": "flat",
+      "observed_value": false,
+      "result": "untested"
+    }
+  ]
+}

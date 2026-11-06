@@ -1,0 +1,66 @@
+{
+  "experiment_id": "exp_009_capvec_r3w7",
+  "seed": 8,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.0729629629629629,
+    "authority_concentration_gini_start": 0.04714285714285693,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0302,
+    "mediation_load": 24.14,
+    "interpretive_drift_rate": 0.499054,
+    "total_state_transitions": 500646,
+    "total_reversions": 249527,
+    "forward_channel_transitions": 250473,
+    "reversion_channel_transitions": 249527,
+    "channel_top1_owner_overlap": 0.0,
+    "channel_top1_owner_overlap_early": 0.0,
+    "channel_specialization_tvd": 1.0,
+    "forward_channel_top1_share": 1.0,
+    "reversion_channel_top1_share": 1.0,
+    "forward_capture_tick_top1_ge_threshold": 0,
+    "reversion_capture_tick_top1_ge_threshold": 4,
+    "channel_capture_share_threshold": 0.8,
+    "channel_early_horizon_tick": 500,
+    "cycling_events_count": 646,
+    "claims_operationalised": 100,
+    "false_consensus_count": 65,
+    "false_consensus_rate": 0.65,
+    "observation_error_rate": 0.0,
+    "total_claims": 100,
+    "post_shock_recovery_ticks": null,
+    "forward_total_early": 25216,
+    "ct_forward_share": 0.9992015107416767,
+    "ct_forward_share_early": 0.9920685279187818,
+    "auth_type_forward_counts": {
+      "signal": 200,
+      "control": 250273
+    },
+    "auth_type_forward_counts_early": {
+      "signal": 200,
+      "control": 25016
+    },
+    "stripped_group_forward_share": null,
+    "stripped_group_forward_share_early": null,
+    "node_group_forward_counts_early": {
+      "fn_": 25216,
+      "pn_": 0,
+      "mn_": 0,
+      "sp_": 0,
+      "fm_": 0
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "H1_heterogeneous_cap_closed_form",
+      "description": "Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=3.0, forward=7.0) at N=100, w0=1.0: 197/2700 = 0.072962962963. Falsified if the endpoint deviates beyond floating-point tolerance.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "flat",
+      "observed_value": 0.0729629629629629,
+      "result": "supported"
+    }
+  ]
+}

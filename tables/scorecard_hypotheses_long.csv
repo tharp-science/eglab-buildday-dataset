@@ -1,0 +1,501 @@
+run_id,id,description,metric,predicted_direction,observed_value,result
+exp_000_42_20260314T102418Z_retroactive,H1,"Without primitives, system produces chaos (low stability)",epistemic_stability_index,low,0.0,supported
+exp_000_42_20260314T102418Z_retroactive,H2,"Without authority primitive, Gini stays near initial value",authority_concentration_gini,flat,0.0,supported
+exp_000_42_20260316T152712Z,H1,"Without primitives, system produces chaos (low stability)",epistemic_stability_index,low,1.0,falsified
+exp_000_42_20260316T152712Z,H2,"Without authority primitive, Gini stays near initial value",authority_concentration_gini,flat,0.0,supported
+exp_000_42_20260724T140857Z,H1,"Without primitives, system produces chaos (low stability)",epistemic_stability_index,low,1.0,falsified
+exp_000_42_20260724T140857Z,H2,"Without authority primitive, Gini stays near initial value",authority_concentration_gini,flat,0.0,supported
+exp_001_42_20260314T102308Z_retroactive,H1,Authority gravity emerges without explicit accumulation rule,authority_concentration_gini,increasing,0.22556390977443597,supported
+exp_001_42_20260314T102308Z_retroactive,H2,Full governance produces higher epistemic stability than null governance,epistemic_stability_index,high,1.0,supported
+exp_001b_confidence_ablation_42_20260314T104134Z_retroactive,H1,"Disabling Confidence raises total_reversions relative to Exp-001 (0 reversions), indicating that Confidence is independently responsible for part of the reversion suppression in full governance — not just Reversibility.
+",total_reversions,increasing,0,falsified
+exp_001b_confidence_ablation_42_20260314T104134Z_retroactive,H2,"Disabling Confidence raises contested_claim_resolution_rate relative to Exp-001 (0.02), because without a confidence gate, contested claims resolve faster (Premature Binary Collapse failure mode). Rate is predicted to be significantly above 0.02 and closer to the null baseline (2.5).
+",contested_claim_resolution_rate,increasing,0.04,falsified
+exp_001b_confidence_ablation_42_20260314T104134Z_retroactive,H3,"epistemic_accuracy decreases relative to Exp-001 (0.6) when Confidence is disabled, because without the threshold gate, false claims are operationalised at the same rate as true ones.
+",epistemic_accuracy,decreasing,0.7,untested
+exp_001b_confidence_ablation_42_20260319T002133Z,H1,"Disabling Confidence raises total_reversions relative to Exp-001 (0 reversions), indicating that Confidence is independently responsible for part of the reversion suppression in full governance — not just Reversibility.
+",total_reversions,increasing,0,untested
+exp_001b_confidence_ablation_42_20260319T002133Z,H2,"Disabling Confidence raises contested_claim_resolution_rate relative to Exp-001 (0.02), because without a confidence gate, contested claims resolve faster (Premature Binary Collapse failure mode). Rate is predicted to be significantly above 0.02 and closer to the null baseline (2.5).
+",contested_claim_resolution_rate,increasing,0.02,untested
+exp_001b_confidence_ablation_42_20260319T002133Z,H3,"epistemic_accuracy decreases relative to Exp-001 (0.6) when Confidence is disabled, because without the threshold gate, false claims are operationalised at the same rate as true ones.
+",epistemic_accuracy,decreasing,0.7,untested
+exp_001c_extended_ticks_42_20260314T104135Z_retroactive,H1,"epistemic_accuracy increases above 0.6 by tick 2000, diverging from the null baseline (Exp-000, 0.6 at 500 ticks). If full governance is functioning correctly, accurate claims should accumulate at operationalised state while inaccurate claims face more reversions, producing accuracy above chance over sufficient time.
+",epistemic_accuracy,increasing,0.7,supported
+exp_001c_extended_ticks_42_20260314T104135Z_retroactive,H2,"authority_concentration_gini continues to increase beyond the Exp-001 value of 0.226, consistent with authority gravity as a compounding mechanism that accumulates over time. Predicted value at tick 2000: > 0.4.
+",authority_concentration_gini,increasing,0.17460317460317465,supported
+exp_001c_extended_ticks_42_20260314T104135Z_retroactive,H3,"epistemic_stability_index remains at or near 1.0, confirming that full governance sustains stability over extended runs rather than degrading through authority gravity or other accumulation effects.
+",epistemic_stability_index,flat,1.0,falsified
+exp_001c_extended_ticks_42_20260319T002133Z,H1,"epistemic_accuracy increases above 0.6 by tick 2000, diverging from the null baseline (Exp-000, 0.6 at 500 ticks). If full governance is functioning correctly, accurate claims should accumulate at operationalised state while inaccurate claims face more reversions, producing accuracy above chance over sufficient time.
+",epistemic_accuracy,increasing,0.7,untested
+exp_001c_extended_ticks_42_20260319T002133Z,H2,"authority_concentration_gini continues to increase beyond the Exp-001 value of 0.226, consistent with authority gravity as a compounding mechanism that accumulates over time. Predicted value at tick 2000: > 0.4.
+",authority_concentration_gini,increasing,0.17460317460317465,supported
+exp_001c_extended_ticks_42_20260319T002133Z,H3,"epistemic_stability_index remains at or near 1.0, confirming that full governance sustains stability over extended runs rather than degrading through authority gravity or other accumulation effects.
+",epistemic_stability_index,flat,1.0,untested
+exp_002_active_42_20260314T114926Z_retroactive,H1,Authority gravity emerges at 100-node scale: Gini rises from null baseline,authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002_active_42_20260314T114926Z_retroactive,H2,"Authority gravity exceeds 7-node equilibrium: Gini delta (active minus null) is greater than 0.175 at equilibrium — the saturation ceiling from the prior batch. Tests whether larger interaction surface unlocks compounding.
+",authority_concentration_gini_delta_from_null,increasing,,untested
+exp_002_active_42_20260314T114926Z_retroactive,H3,"Authority gravity does not reach equilibrium by tick 5000: Gini is still rising in the final 1000 ticks. Tests whether compounding is unbounded at this scale or saturates at a higher ceiling.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002_active_42_20260314T114926Z_retroactive,H4,ESI remains high (≥ 0.8) throughout: full governance is stable at scale,epistemic_stability_index,flat,0.0,untested
+exp_002_active_42_20260314T114926Z_retroactive,H5,Claim cycling sustains live system: transitions continue past tick 1000,state_transition_count,increasing,,untested
+exp_002_null_42_20260314T114749Z_retroactive,H1,Null run produces flat Gini at starting baseline (no primitive-driven concentration),authority_concentration_gini,flat,0.0,supported
+exp_002_null_42_20260314T114749Z_retroactive,H2,Null run produces ESI near 0 (claims resolve chaotically without governance),epistemic_stability_index,flat,1.0,untested
+exp_002_null_42_20260314T114749Z_retroactive,H3,Null baseline Gini at equilibrium provides scale reference for active experiment,authority_concentration_gini,flat,0.0,supported
+exp_002_null_42_20260314T125602Z,H1,Null run produces flat Gini at starting baseline (no primitive-driven concentration),authority_concentration_gini,flat,0.0,supported
+exp_002_null_42_20260314T125602Z,H2,Null run produces ESI near 0 (claims resolve chaotically without governance),epistemic_stability_index,flat,1.0,untested
+exp_002_null_42_20260314T125602Z,H3,Null baseline Gini at equilibrium provides scale reference for active experiment,authority_concentration_gini,flat,0.0,supported
+exp_002b_k12_active_123_20260314T133933Z,H1,"Gini delta (active minus null, k=12) exceeds the k=6 result (0.073). If H7 holds, doubling interaction density should produce proportionally stronger authority concentration.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k12_active_123_20260314T133933Z,H2,"Gini trajectory is still rising in the final 1000 ticks, consistent with authority gravity not yet saturating at k=12.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k12_active_123_20260314T133933Z,H3,"ESI and drift rate are within the same order of magnitude as Exp-002 (seed 42, B1/B3-fixed: drift = 0.497, ESI = 0.0). k variation should not systematically change epistemic contention if the interaction-density hypothesis is specifically about structural gravity, not epistemic dynamics.
+",interpretive_drift_rate,flat,0.49911,untested
+exp_002b_k12_active_123_20260314T133933Z,H4,Cycling sustains live system: b3_absorbing_state_artefact remains false,b3_absorbing_state_artefact,flat,False,untested
+exp_002b_k12_active_42_20260314T132900Z,H1,"Gini delta (active minus null, k=12) exceeds the k=6 result (0.073). If H7 holds, doubling interaction density should produce proportionally stronger authority concentration.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k12_active_42_20260314T132900Z,H2,"Gini trajectory is still rising in the final 1000 ticks, consistent with authority gravity not yet saturating at k=12.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k12_active_42_20260314T132900Z,H3,"ESI and drift rate are within the same order of magnitude as Exp-002 (seed 42, B1/B3-fixed: drift = 0.497, ESI = 0.0). k variation should not systematically change epistemic contention if the interaction-density hypothesis is specifically about structural gravity, not epistemic dynamics.
+",interpretive_drift_rate,flat,0.49908,untested
+exp_002b_k12_active_42_20260314T132900Z,H4,Cycling sustains live system: b3_absorbing_state_artefact remains false,b3_absorbing_state_artefact,flat,False,untested
+exp_002b_k12_active_42_20260314T133933Z,H1,"Gini delta (active minus null, k=12) exceeds the k=6 result (0.073). If H7 holds, doubling interaction density should produce proportionally stronger authority concentration.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k12_active_42_20260314T133933Z,H2,"Gini trajectory is still rising in the final 1000 ticks, consistent with authority gravity not yet saturating at k=12.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k12_active_42_20260314T133933Z,H3,"ESI and drift rate are within the same order of magnitude as Exp-002 (seed 42, B1/B3-fixed: drift = 0.497, ESI = 0.0). k variation should not systematically change epistemic contention if the interaction-density hypothesis is specifically about structural gravity, not epistemic dynamics.
+",interpretive_drift_rate,flat,0.49908,untested
+exp_002b_k12_active_42_20260314T133933Z,H4,Cycling sustains live system: b3_absorbing_state_artefact remains false,b3_absorbing_state_artefact,flat,False,untested
+exp_002b_k12_active_7_20260314T133934Z,H1,"Gini delta (active minus null, k=12) exceeds the k=6 result (0.073). If H7 holds, doubling interaction density should produce proportionally stronger authority concentration.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k12_active_7_20260314T133934Z,H2,"Gini trajectory is still rising in the final 1000 ticks, consistent with authority gravity not yet saturating at k=12.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k12_active_7_20260314T133934Z,H3,"ESI and drift rate are within the same order of magnitude as Exp-002 (seed 42, B1/B3-fixed: drift = 0.497, ESI = 0.0). k variation should not systematically change epistemic contention if the interaction-density hypothesis is specifically about structural gravity, not epistemic dynamics.
+",interpretive_drift_rate,flat,0.499042,untested
+exp_002b_k12_active_7_20260314T133934Z,H4,Cycling sustains live system: b3_absorbing_state_artefact remains false,b3_absorbing_state_artefact,flat,False,untested
+exp_002b_k12_null_123_20260314T133931Z,H1,Null run produces flat Gini — no primitive-driven concentration at k=12,authority_concentration_gini,flat,0.0,supported
+exp_002b_k12_null_123_20260314T133931Z,H2,Null Gini at equilibrium provides k=12 reference for active Gini delta,authority_concentration_gini,flat,0.0,supported
+exp_002b_k12_null_42_20260314T132858Z,H1,Null run produces flat Gini — no primitive-driven concentration at k=12,authority_concentration_gini,flat,0.0,supported
+exp_002b_k12_null_42_20260314T132858Z,H2,Null Gini at equilibrium provides k=12 reference for active Gini delta,authority_concentration_gini,flat,0.0,supported
+exp_002b_k12_null_42_20260314T133928Z,H1,Null run produces flat Gini — no primitive-driven concentration at k=12,authority_concentration_gini,flat,0.0,supported
+exp_002b_k12_null_42_20260314T133928Z,H2,Null Gini at equilibrium provides k=12 reference for active Gini delta,authority_concentration_gini,flat,0.0,supported
+exp_002b_k12_null_7_20260314T133932Z,H1,Null run produces flat Gini — no primitive-driven concentration at k=12,authority_concentration_gini,flat,0.0,supported
+exp_002b_k12_null_7_20260314T133932Z,H2,Null Gini at equilibrium provides k=12 reference for active Gini delta,authority_concentration_gini,flat,0.0,supported
+exp_002b_k20_active_123_20260314T135939Z,H1,"Gini delta (active minus null, k=20) exceeds both the k=6 result (0.073) and the k=12 result. If H7 holds, increasing interaction density further should produce stronger authority concentration.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k20_active_123_20260314T135939Z,H2,"Gini trajectory is still rising in the final 1000 ticks, consistent with authority gravity not yet saturating at k=20.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k20_active_123_20260314T135939Z,H3,"ESI and drift rate are within the same order of magnitude as k=6 and k=12 active runs. k variation should not systematically change epistemic contention if the interaction-density hypothesis is specifically about structural gravity, not epistemic dynamics.
+",interpretive_drift_rate,flat,0.49911,untested
+exp_002b_k20_active_123_20260314T135939Z,H4,Cycling sustains live system: b3_absorbing_state_artefact remains false,b3_absorbing_state_artefact,flat,False,untested
+exp_002b_k20_active_42_20260314T135939Z,H1,"Gini delta (active minus null, k=20) exceeds both the k=6 result (0.073) and the k=12 result. If H7 holds, increasing interaction density further should produce stronger authority concentration.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k20_active_42_20260314T135939Z,H2,"Gini trajectory is still rising in the final 1000 ticks, consistent with authority gravity not yet saturating at k=20.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k20_active_42_20260314T135939Z,H3,"ESI and drift rate are within the same order of magnitude as k=6 and k=12 active runs. k variation should not systematically change epistemic contention if the interaction-density hypothesis is specifically about structural gravity, not epistemic dynamics.
+",interpretive_drift_rate,flat,0.49908,untested
+exp_002b_k20_active_42_20260314T135939Z,H4,Cycling sustains live system: b3_absorbing_state_artefact remains false,b3_absorbing_state_artefact,flat,False,untested
+exp_002b_k20_active_7_20260314T135940Z,H1,"Gini delta (active minus null, k=20) exceeds both the k=6 result (0.073) and the k=12 result. If H7 holds, increasing interaction density further should produce stronger authority concentration.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k20_active_7_20260314T135940Z,H2,"Gini trajectory is still rising in the final 1000 ticks, consistent with authority gravity not yet saturating at k=20.
+",authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_002b_k20_active_7_20260314T135940Z,H3,"ESI and drift rate are within the same order of magnitude as k=6 and k=12 active runs. k variation should not systematically change epistemic contention if the interaction-density hypothesis is specifically about structural gravity, not epistemic dynamics.
+",interpretive_drift_rate,flat,0.499042,untested
+exp_002b_k20_active_7_20260314T135940Z,H4,Cycling sustains live system: b3_absorbing_state_artefact remains false,b3_absorbing_state_artefact,flat,False,untested
+exp_002b_k20_null_123_20260314T135937Z,H1,Null run produces flat Gini — no primitive-driven concentration at k=20,authority_concentration_gini,flat,0.0,supported
+exp_002b_k20_null_123_20260314T135937Z,H2,Null Gini at equilibrium provides k=20 reference for active Gini delta,authority_concentration_gini,flat,0.0,supported
+exp_002b_k20_null_42_20260314T135936Z,H1,Null run produces flat Gini — no primitive-driven concentration at k=20,authority_concentration_gini,flat,0.0,supported
+exp_002b_k20_null_42_20260314T135936Z,H2,Null Gini at equilibrium provides k=20 reference for active Gini delta,authority_concentration_gini,flat,0.0,supported
+exp_002b_k20_null_7_20260314T135938Z,H1,Null run produces flat Gini — no primitive-driven concentration at k=20,authority_concentration_gini,flat,0.0,supported
+exp_002b_k20_null_7_20260314T135938Z,H2,Null Gini at equilibrium provides k=20 reference for active Gini delta,authority_concentration_gini,flat,0.0,supported
+exp_003a_active_123_20260314T185837Z,H10a,"Founding proportion reduction lowers authority equilibrium: Gini delta (active − null) is less than 0.073 at equilibrium. Tests whether temporal position (founding proportion) governs the fixed point.
+",authority_concentration_gini_delta_from_null,< 0.073,,untested
+exp_003a_active_123_20260314T185837Z,H10b,"System remains alive: total state transitions exceed 10× claim count. Confirms cycling mechanism is active at reduced founding proportion.
+",total_state_transitions,> 1000,500597,supported
+exp_003a_active_42_20260314T185830Z,H10a,"Founding proportion reduction lowers authority equilibrium: Gini delta (active − null) is less than 0.073 at equilibrium. Tests whether temporal position (founding proportion) governs the fixed point.
+",authority_concentration_gini_delta_from_null,< 0.073,,untested
+exp_003a_active_42_20260314T185830Z,H10b,"System remains alive: total state transitions exceed 10× claim count. Confirms cycling mechanism is active at reduced founding proportion.
+",total_state_transitions,> 1000,500622,supported
+exp_003a_active_7_20260314T185844Z,H10a,"Founding proportion reduction lowers authority equilibrium: Gini delta (active − null) is less than 0.073 at equilibrium. Tests whether temporal position (founding proportion) governs the fixed point.
+",authority_concentration_gini_delta_from_null,< 0.073,,untested
+exp_003a_active_7_20260314T185844Z,H10b,"System remains alive: total state transitions exceed 10× claim count. Confirms cycling mechanism is active at reduced founding proportion.
+",total_state_transitions,> 1000,500658,supported
+exp_003b_active_123_20260314T184100Z,H10_control,"Control replication: Gini delta ≈ 0.073 at equilibrium. Confirms Batch 03 apparatus reproduces the Batch 02 fixed point before interpreting the 4/100 and 16/100 conditions.
+",authority_concentration_gini_delta_from_null,≈ 0.073,,untested
+exp_003b_active_42_20260314T184047Z,H10_control,"Control replication: Gini delta ≈ 0.073 at equilibrium. Confirms Batch 03 apparatus reproduces the Batch 02 fixed point before interpreting the 4/100 and 16/100 conditions.
+",authority_concentration_gini_delta_from_null,≈ 0.073,,untested
+exp_003b_active_7_20260314T184102Z,H10_control,"Control replication: Gini delta ≈ 0.073 at equilibrium. Confirms Batch 03 apparatus reproduces the Batch 02 fixed point before interpreting the 4/100 and 16/100 conditions.
+",authority_concentration_gini_delta_from_null,≈ 0.073,,untested
+exp_003c_active_123_20260314T185852Z,H10c,"Founding proportion increase raises authority equilibrium: Gini delta (active − null) is greater than 0.073 at equilibrium. Tests whether temporal position (founding proportion) governs the fixed point.
+",authority_concentration_gini_delta_from_null,> 0.073,,untested
+exp_003c_active_123_20260314T185852Z,H10d,"System remains alive: total state transitions exceed 10× claim count. Confirms cycling mechanism is active at increased founding proportion.
+",total_state_transitions,> 1000,500597,supported
+exp_003c_active_42_20260314T185848Z,H10c,"Founding proportion increase raises authority equilibrium: Gini delta (active − null) is greater than 0.073 at equilibrium. Tests whether temporal position (founding proportion) governs the fixed point.
+",authority_concentration_gini_delta_from_null,> 0.073,,untested
+exp_003c_active_42_20260314T185848Z,H10d,"System remains alive: total state transitions exceed 10× claim count. Confirms cycling mechanism is active at increased founding proportion.
+",total_state_transitions,> 1000,500622,supported
+exp_003c_active_7_20260314T185856Z,H10c,"Founding proportion increase raises authority equilibrium: Gini delta (active − null) is greater than 0.073 at equilibrium. Tests whether temporal position (founding proportion) governs the fixed point.
+",authority_concentration_gini_delta_from_null,> 0.073,,untested
+exp_003c_active_7_20260314T185856Z,H10d,"System remains alive: total state transitions exceed 10× claim count. Confirms cycling mechanism is active at increased founding proportion.
+",total_state_transitions,> 1000,500658,supported
+exp_004a_W2_active_42_20260314T211753Z,H11a_W2_gini_start,"Gini_start = 99/10100 ≈ 0.009802 after tick 0. One node wins all 100 claims (unknown→hyp) and reaches W=2.0 cap after 20 wins. Distribution: [2.0 × 1, 1.0 × 99]. Derivation: G = 2·(4950+200)/(100·101)−101/100.
+",authority_concentration_gini_start,,0.00980198019801981,untestable
+exp_004a_W2_active_42_20260314T211753Z,H11a_W2_gini_end,"Gini_end = 49/2550 ≈ 0.019216 at equilibrium. Two dominant nodes (S* at W=2.0 for signal/perceptual group; C* at W=2.0 for control/temporal group); 98 nodes remain at w₀=1.0. This is the primary falsification condition for H11 at W=2.0.
+",authority_concentration_gini,,0.01921568627450987,untestable
+exp_004a_W2_active_42_20260314T213708Z,H11a_W2_gini_start,"Gini_start = 99/10100 ≈ 0.009802 after tick 0. One node wins all 100 claims (unknown→hyp) and reaches W=2.0 cap after 20 wins. Distribution: [2.0 × 1, 1.0 × 99]. Derivation: G = 2·(4950+200)/(100·101)−101/100.
+",authority_concentration_gini_start,,0.00980198019801981,untestable
+exp_004a_W2_active_42_20260314T213708Z,H11a_W2_gini_end,"Gini_end = 49/2550 ≈ 0.019216 at equilibrium. Two dominant nodes (S* at W=2.0 for signal/perceptual group; C* at W=2.0 for control/temporal group); 98 nodes remain at w₀=1.0. This is the primary falsification condition for H11 at W=2.0.
+",authority_concentration_gini,,0.01921568627450987,untestable
+exp_004b_W3_active_42_20260314T212213Z,H11b_W3_gini_start,"Gini_start = 33/1700 ≈ 0.019412 after tick 0. One node wins all 100 claims and reaches W=3.0 cap after 40 wins. Distribution: [3.0 × 1, 1.0 × 99].
+",authority_concentration_gini_start,,0.01941176470588224,untestable
+exp_004b_W3_active_42_20260314T212213Z,H11b_W3_gini_end,"Gini_end = 49/1300 ≈ 0.037692 at equilibrium. Two dominant nodes at W=3.0; 98 nodes at w₀=1.0. Primary falsification condition for H11 at W=3.0.
+",authority_concentration_gini,,0.03769230769230769,untestable
+exp_004b_W3_active_42_20260314T214122Z,H11b_W3_gini_start,"Gini_start = 33/1700 ≈ 0.019412 after tick 0. One node wins all 100 claims and reaches W=3.0 cap after 40 wins. Distribution: [3.0 × 1, 1.0 × 99].
+",authority_concentration_gini_start,,0.01941176470588224,untestable
+exp_004b_W3_active_42_20260314T214122Z,H11b_W3_gini_end,"Gini_end = 49/1300 ≈ 0.037692 at equilibrium. Two dominant nodes at W=3.0; 98 nodes at w₀=1.0. Primary falsification condition for H11 at W=3.0.
+",authority_concentration_gini,,0.03769230769230769,untestable
+exp_004c_W4_active_42_20260314T212620Z,H11c_W4_gini_start,"Gini_start = 297/10300 ≈ 0.028835 after tick 0. One node wins all 100 claims and reaches W=4.0 cap after 60 wins. Distribution: [4.0 × 1, 1.0 × 99].
+",authority_concentration_gini_start,,0.028834951456310653,untestable
+exp_004c_W4_active_42_20260314T212620Z,H11c_W4_gini_end,"Gini_end = 147/2650 ≈ 0.055472 at equilibrium. Two dominant nodes at W=4.0; 98 nodes at w₀=1.0. Primary falsification condition for H11 at W=4.0.
+",authority_concentration_gini,,0.05547169811320751,untestable
+exp_004c_W4_active_42_20260314T214601Z,H11c_W4_gini_start,"Gini_start = 297/10300 ≈ 0.028835 after tick 0. One node wins all 100 claims and reaches W=4.0 cap after 60 wins. Distribution: [4.0 × 1, 1.0 × 99].
+",authority_concentration_gini_start,,0.028834951456310653,untestable
+exp_004c_W4_active_42_20260314T214601Z,H11c_W4_gini_end,"Gini_end = 147/2650 ≈ 0.055472 at equilibrium. Two dominant nodes at W=4.0; 98 nodes at w₀=1.0. Primary falsification condition for H11 at W=4.0.
+",authority_concentration_gini,,0.05547169811320751,untestable
+exp_004d_k1_sweep_2_20260314T215046Z,H11d_k1_gini_flat,"In a k=1 run (S* is fn or fm), Gini_end = Gini_start. The Gini does not grow after tick 0 because the single dominant node wins all transition types and no second node ever accumulates weight.
+",gini_delta_start_to_end,≈ 0.0,,untested
+exp_004d_k1_sweep_2_20260314T215046Z,H11d_k1_gini_end,"Gini_end = 99/2600 ≈ 0.038077 in the k=1 case. This is the same value as Gini_start in k=2 runs, but here it is also the equilibrium — it neither rises nor falls after tick 0. Derivation: G(N=100, k=1, W=5.0, w₀=1.0) = 99/2600.
+",authority_concentration_gini,,0.07259259259259254,untestable
+exp_005a_reversibility_off_16_20260314T223822Z,H12a_k1_flat,"With reversibility disabled, k=1 should remain stable and Gini should not grow after tick 0.
+",authority_concentration_gini,flat,0.03807692307692312,supported
+exp_005a_reversibility_off_16_20260314T223822Z,H12b_k1_endpoint,"Endpoint should remain at k=1 value: 99/2600 ≈ 0.038077.
+",authority_concentration_gini,<= 0.04,0.03807692307692312,supported
+exp_005a_reversibility_off_2_20260314T221551Z,H12a_k1_flat,"With reversibility disabled, k=1 should remain stable and Gini should not grow after tick 0.
+",authority_concentration_gini,flat,0.03807692307692312,supported
+exp_005a_reversibility_off_2_20260314T221551Z,H12b_k1_endpoint,"Endpoint should remain at k=1 value: 99/2600 ≈ 0.038077.
+",authority_concentration_gini,<= 0.04,0.03807692307692312,supported
+exp_005a_reversibility_off_8_20260314T223406Z,H12a_k1_flat,"With reversibility disabled, k=1 should remain stable and Gini should not grow after tick 0.
+",authority_concentration_gini,flat,0.03807692307692312,supported
+exp_005a_reversibility_off_8_20260314T223406Z,H12b_k1_endpoint,"Endpoint should remain at k=1 value: 99/2600 ≈ 0.038077.
+",authority_concentration_gini,<= 0.04,0.03807692307692312,supported
+exp_006a_channel_asym_caps_16_20260315T102250Z,H13a_channel_persistence_under_asymmetry,"With both channels active, asymmetry should not collapse to k=1. Endpoint gini should remain above k=1 region.
+",authority_concentration_gini,> 0.05,0.08137614678899086,supported
+exp_006a_channel_asym_caps_16_20260315T102250Z,H13b_asymmetric_endpoint_elevated,"Expected asymmetric two-role endpoint should exceed the symmetric k=2 baseline (~0.0726) under W_forward=8, W_reversion=3 proxy caps.
+",authority_concentration_gini,>= 0.075,0.08137614678899086,supported
+exp_006a_channel_asym_caps_16_20260315T102250Z,H13c_reversion_channel_active,"Reversion pathway remains active in this condition.
+",total_reversions,> 0,249545,supported
+exp_006a_channel_asym_caps_2_20260315T094620Z,H13a_channel_persistence_under_asymmetry,"With both channels active, asymmetry should not collapse to k=1. Endpoint gini should remain above k=1 region.
+",authority_concentration_gini,> 0.05,0.08137614678899086,supported
+exp_006a_channel_asym_caps_2_20260315T094620Z,H13b_asymmetric_endpoint_elevated,"Expected asymmetric two-role endpoint should exceed the symmetric k=2 baseline (~0.0726) under W_forward=8, W_reversion=3 proxy caps.
+",authority_concentration_gini,>= 0.075,0.08137614678899086,supported
+exp_006a_channel_asym_caps_2_20260315T094620Z,H13c_reversion_channel_active,"Reversion pathway remains active in this condition.
+",total_reversions,> 0,249529,supported
+exp_006a_channel_asym_caps_8_20260315T102250Z,H13a_channel_persistence_under_asymmetry,"With both channels active, asymmetry should not collapse to k=1. Endpoint gini should remain above k=1 region.
+",authority_concentration_gini,> 0.05,0.08137614678899086,supported
+exp_006a_channel_asym_caps_8_20260315T102250Z,H13b_asymmetric_endpoint_elevated,"Expected asymmetric two-role endpoint should exceed the symmetric k=2 baseline (~0.0726) under W_forward=8, W_reversion=3 proxy caps.
+",authority_concentration_gini,>= 0.075,0.08137614678899086,supported
+exp_006a_channel_asym_caps_8_20260315T102250Z,H13c_reversion_channel_active,"Reversion pathway remains active in this condition.
+",total_reversions,> 0,249527,supported
+exp_006b_equalized_reversibility_tolerance_16_20260315T100038Z,H14a_merge_branch,"If equalizing reversibility tolerance collapses channel ownership, endpoint should move toward k=1 region.
+",authority_concentration_gini,<= 0.05,0.03807692307692312,supported
+exp_006b_equalized_reversibility_tolerance_16_20260315T100038Z,H14b_split_branch,"If channel split persists despite equalized tolerance, endpoint should remain in k=2-like region.
+",authority_concentration_gini,>= 0.07,0.03807692307692312,falsified
+exp_006b_equalized_reversibility_tolerance_16_20260315T100038Z,H14c_reversion_channel_active,"Reversion pathway remains active in this condition.
+",total_reversions,> 0,249545,supported
+exp_006b_equalized_reversibility_tolerance_2_20260315T094620Z,H14a_merge_branch,"If equalizing reversibility tolerance collapses channel ownership, endpoint should move toward k=1 region.
+",authority_concentration_gini,<= 0.05,0.03807692307692312,supported
+exp_006b_equalized_reversibility_tolerance_2_20260315T094620Z,H14b_split_branch,"If channel split persists despite equalized tolerance, endpoint should remain in k=2-like region.
+",authority_concentration_gini,>= 0.07,0.03807692307692312,falsified
+exp_006b_equalized_reversibility_tolerance_2_20260315T094620Z,H14c_reversion_channel_active,"Reversion pathway remains active in this condition.
+",total_reversions,> 0,249529,supported
+exp_006b_equalized_reversibility_tolerance_8_20260315T100038Z,H14a_merge_branch,"If equalizing reversibility tolerance collapses channel ownership, endpoint should move toward k=1 region.
+",authority_concentration_gini,<= 0.05,0.03807692307692312,supported
+exp_006b_equalized_reversibility_tolerance_8_20260315T100038Z,H14b_split_branch,"If channel split persists despite equalized tolerance, endpoint should remain in k=2-like region.
+",authority_concentration_gini,>= 0.07,0.03807692307692312,falsified
+exp_006b_equalized_reversibility_tolerance_8_20260315T100038Z,H14c_reversion_channel_active,"Reversion pathway remains active in this condition.
+",total_reversions,> 0,249527,supported
+exp_006c_partial_overlap_eligibility_16_20260315T114745Z,H15a_partial_overlap_merge,"If overlap causes channel ownership collapse, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.07259259259259254,falsified
+exp_006c_partial_overlap_eligibility_16_20260315T114745Z,H15b_partial_overlap_split,"If split remains robust under partial overlap, endpoint should stay in k=2-like region.
+",authority_concentration_gini,>= 0.07,0.07259259259259254,supported
+exp_006c_partial_overlap_eligibility_16_20260315T114745Z,H15c_reversion_channel_active,"Reversion channel remains active in the partial-overlap regime.
+",total_reversions,> 0,249545,supported
+exp_006c_partial_overlap_eligibility_2_20260315T113349Z,H15a_partial_overlap_merge,"If overlap causes channel ownership collapse, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.07259259259259254,falsified
+exp_006c_partial_overlap_eligibility_2_20260315T113349Z,H15b_partial_overlap_split,"If split remains robust under partial overlap, endpoint should stay in k=2-like region.
+",authority_concentration_gini,>= 0.07,0.07259259259259254,supported
+exp_006c_partial_overlap_eligibility_2_20260315T113349Z,H15c_reversion_channel_active,"Reversion channel remains active in the partial-overlap regime.
+",total_reversions,> 0,249529,supported
+exp_006c_partial_overlap_eligibility_8_20260315T114745Z,H15a_partial_overlap_merge,"If overlap causes channel ownership collapse, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.07259259259259254,falsified
+exp_006c_partial_overlap_eligibility_8_20260315T114745Z,H15b_partial_overlap_split,"If split remains robust under partial overlap, endpoint should stay in k=2-like region.
+",authority_concentration_gini,>= 0.07,0.07259259259259254,supported
+exp_006c_partial_overlap_eligibility_8_20260315T114745Z,H15c_reversion_channel_active,"Reversion channel remains active in the partial-overlap regime.
+",total_reversions,> 0,249527,supported
+exp_006d_overlap_mid_16_20260315T170653Z,H16a_mid_overlap_merge,"If midpoint overlap intensity is already above collapse threshold, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.03807692307692312,supported
+exp_006d_overlap_mid_16_20260315T170653Z,H16b_mid_overlap_split,"If midpoint overlap intensity is below collapse threshold, endpoint remains k=2-like.
+",authority_concentration_gini,>= 0.07,0.03807692307692312,falsified
+exp_006d_overlap_mid_16_20260315T170653Z,H16c_reversion_channel_active,"Reversion remains active in midpoint-overlap regime.
+",total_reversions,> 0,249545,supported
+exp_006d_overlap_mid_2_20260315T125243Z,H16a_mid_overlap_merge,"If midpoint overlap intensity is already above collapse threshold, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.07259259259259254,falsified
+exp_006d_overlap_mid_2_20260315T125243Z,H16b_mid_overlap_split,"If midpoint overlap intensity is below collapse threshold, endpoint remains k=2-like.
+",authority_concentration_gini,>= 0.07,0.07259259259259254,supported
+exp_006d_overlap_mid_2_20260315T125243Z,H16c_reversion_channel_active,"Reversion remains active in midpoint-overlap regime.
+",total_reversions,> 0,249529,supported
+exp_006d_overlap_mid_8_20260315T170653Z,H16a_mid_overlap_merge,"If midpoint overlap intensity is already above collapse threshold, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.03807692307692312,supported
+exp_006d_overlap_mid_8_20260315T170653Z,H16b_mid_overlap_split,"If midpoint overlap intensity is below collapse threshold, endpoint remains k=2-like.
+",authority_concentration_gini,>= 0.07,0.03807692307692312,falsified
+exp_006d_overlap_mid_8_20260315T170653Z,H16c_reversion_channel_active,"Reversion remains active in midpoint-overlap regime.
+",total_reversions,> 0,249527,supported
+exp_006e_overlap_high_16_20260315T174643Z,H17a_high_overlap_merge,"If high overlap is above collapse threshold, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.03807692307692312,supported
+exp_006e_overlap_high_16_20260315T174643Z,H17b_high_overlap_split,"If high overlap is still below collapse threshold, endpoint stays k=2-like.
+",authority_concentration_gini,>= 0.07,0.03807692307692312,falsified
+exp_006e_overlap_high_16_20260315T174643Z,H17c_reversion_channel_active,"Reversion remains active in high-overlap regime.
+",total_reversions,> 0,249545,supported
+exp_006e_overlap_high_2_20260315T173256Z,H17a_high_overlap_merge,"If high overlap is above collapse threshold, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.07259259259259254,falsified
+exp_006e_overlap_high_2_20260315T173256Z,H17b_high_overlap_split,"If high overlap is still below collapse threshold, endpoint stays k=2-like.
+",authority_concentration_gini,>= 0.07,0.07259259259259254,supported
+exp_006e_overlap_high_2_20260315T173256Z,H17c_reversion_channel_active,"Reversion remains active in high-overlap regime.
+",total_reversions,> 0,249529,supported
+exp_006e_overlap_high_8_20260315T174643Z,H17a_high_overlap_merge,"If high overlap is above collapse threshold, endpoint should move to k=1-like region.
+",authority_concentration_gini,<= 0.05,0.03807692307692312,supported
+exp_006e_overlap_high_8_20260315T174643Z,H17b_high_overlap_split,"If high overlap is still below collapse threshold, endpoint stays k=2-like.
+",authority_concentration_gini,>= 0.07,0.03807692307692312,falsified
+exp_006e_overlap_high_8_20260315T174643Z,H17c_reversion_channel_active,"Reversion remains active in high-overlap regime.
+",total_reversions,> 0,249527,supported
+exp_008_channels_c1_123_20260727T151558Z,H1,Equilibrium authority concentration tracks the closed form for k = 1 disjoint eligibility classes (predicted gini 0.038077).,authority_concentration_gini,flat,0.03807692307692312,supported
+exp_008_channels_c1_123_20260727T151558Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502471,untested
+exp_008_channels_c1_42_20260727T145921Z,H1,Equilibrium authority concentration tracks the closed form for k = 1 disjoint eligibility classes (predicted gini 0.038077).,authority_concentration_gini,flat,0.03807692307692312,supported
+exp_008_channels_c1_42_20260727T145921Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502498,untested
+exp_008_channels_c1_7_20260727T152832Z,H1,Equilibrium authority concentration tracks the closed form for k = 1 disjoint eligibility classes (predicted gini 0.038077).,authority_concentration_gini,flat,0.03807692307692312,supported
+exp_008_channels_c1_7_20260727T152832Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502455,untested
+exp_008_channels_c2_123_20260727T154104Z,H1,Equilibrium authority concentration tracks the closed form for k = 2 disjoint eligibility classes (predicted gini 0.072593).,authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_008_channels_c2_123_20260727T154104Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502471,untested
+exp_008_channels_c2_42_20260727T155207Z,H1,Equilibrium authority concentration tracks the closed form for k = 2 disjoint eligibility classes (predicted gini 0.072593).,authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_008_channels_c2_42_20260727T155207Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502498,untested
+exp_008_channels_c2_7_20260727T160318Z,H1,Equilibrium authority concentration tracks the closed form for k = 2 disjoint eligibility classes (predicted gini 0.072593).,authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_008_channels_c2_7_20260727T160318Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502455,untested
+exp_008_channels_c3_123_20260727T161434Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_123_20260727T161434Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502471,untested
+exp_008_channels_c3_16_20260727T182226Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_16_20260727T182226Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502517,untested
+exp_008_channels_c3_211_20260727T184349Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_211_20260727T184349Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502450,untested
+exp_008_channels_c3_23_20260727T185426Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_23_20260727T185426Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502534,untested
+exp_008_channels_c3_2_20260727T183307Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_2_20260727T183307Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502513,untested
+exp_008_channels_c3_307_20260727T190507Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_008_channels_c3_307_20260727T190507Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502459,untested
+exp_008_channels_c3_401_20260727T191547Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_401_20260727T191547Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502464,untested
+exp_008_channels_c3_42_20260727T162514Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_008_channels_c3_42_20260727T162514Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502498,untested
+exp_008_channels_c3_509_20260727T192624Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_509_20260727T192624Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502532,untested
+exp_008_channels_c3_57_20260727T193701Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_57_20260727T193701Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502425,untested
+exp_008_channels_c3_613_20260727T194734Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_613_20260727T194734Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502575,untested
+exp_008_channels_c3_73_20260727T195805Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_73_20260727T195805Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502547,untested
+exp_008_channels_c3_7_20260727T163549Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_7_20260727T163549Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502455,untested
+exp_008_channels_c3_8_20260727T200836Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.10392857142857137,supported
+exp_008_channels_c3_8_20260727T200836Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502473,untested
+exp_008_channels_c3_91_20260727T201908Z,H1,Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).,authority_concentration_gini,increasing,0.07259259259259254,supported
+exp_008_channels_c3_91_20260727T201908Z,H2,The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.,total_state_transitions,increasing,502493,untested
+exp_009_capvec_r2w6_16_20260727T202943Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=2.0, forward=6.0) at N=100, w0=1.0: 74/1325 = 0.055849056604. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.055849056603773484,supported
+exp_009_capvec_r2w6_2_20260727T204034Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=2.0, forward=6.0) at N=100, w0=1.0: 74/1325 = 0.055849056604. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.055849056603773484,supported
+exp_009_capvec_r2w6_8_20260727T205126Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=2.0, forward=6.0) at N=100, w0=1.0: 74/1325 = 0.055849056604. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.055849056603773484,supported
+exp_009_capvec_r2w8_16_20260727T210220Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=2.0, forward=8.0) at N=100, w0=1.0: 79/1080 = 0.073148148148. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.07314814814814818,supported
+exp_009_capvec_r2w8_2_20260727T211313Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=2.0, forward=8.0) at N=100, w0=1.0: 79/1080 = 0.073148148148. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.07314814814814818,supported
+exp_009_capvec_r2w8_8_20260727T212403Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=2.0, forward=8.0) at N=100, w0=1.0: 79/1080 = 0.073148148148. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.07314814814814818,supported
+exp_009_capvec_r3w6_16_20260727T213455Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=3.0, forward=6.0) at N=100, w0=1.0: 689/10700 = 0.064392523364. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.06439252336448598,supported
+exp_009_capvec_r3w6_2_20260727T214547Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=3.0, forward=6.0) at N=100, w0=1.0: 689/10700 = 0.064392523364. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.06439252336448598,supported
+exp_009_capvec_r3w6_8_20260727T215640Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=3.0, forward=6.0) at N=100, w0=1.0: 689/10700 = 0.064392523364. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.06439252336448598,supported
+exp_009_capvec_r3w7_16_20260727T220735Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=3.0, forward=7.0) at N=100, w0=1.0: 197/2700 = 0.072962962963. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.0729629629629629,supported
+exp_009_capvec_r3w7_2_20260727T221828Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=3.0, forward=7.0) at N=100, w0=1.0: 197/2700 = 0.072962962963. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.0729629629629629,supported
+exp_009_capvec_r3w7_8_20260727T222921Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=3.0, forward=7.0) at N=100, w0=1.0: 197/2700 = 0.072962962963. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.0729629629629629,supported
+exp_009_capvec_r4w8_16_20260727T224016Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=4.0, forward=8.0) at N=100, w0=1.0: 123/1375 = 0.089454545455. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.08945454545454545,supported
+exp_009_capvec_r4w8_2_20260727T225114Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=4.0, forward=8.0) at N=100, w0=1.0: 123/1375 = 0.089454545455. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.08945454545454545,supported
+exp_009_capvec_r4w8_8_20260727T230207Z,H1_heterogeneous_cap_closed_form,"Endpoint Gini equals the two-dominant heterogeneous-cap closed form for caps (reversion=4.0, forward=8.0) at N=100, w0=1.0: 123/1375 = 0.089454545455. Falsified if the endpoint deviates beyond floating-point tolerance.
+",authority_concentration_gini,flat,0.08945454545454545,supported
+exp_009_tiebreak_c1_11_20260730T204832Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,86,supported
+exp_009_tiebreak_c1_11_20260730T204832Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_11_20260730T204832Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,86,supported
+exp_009_tiebreak_c1_11_20260730T204832Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_123_20260730T204742Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,78,supported
+exp_009_tiebreak_c1_123_20260730T204742Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_123_20260730T204742Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,78,supported
+exp_009_tiebreak_c1_123_20260730T204742Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_29_20260730T204832Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,58,supported
+exp_009_tiebreak_c1_29_20260730T204832Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_29_20260730T204832Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,58,supported
+exp_009_tiebreak_c1_29_20260730T204832Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_42_20260730T215349Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,90,supported
+exp_009_tiebreak_c1_42_20260730T215349Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_42_20260730T215349Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,90,supported
+exp_009_tiebreak_c1_42_20260730T215349Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_7_20260730T204832Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,90,supported
+exp_009_tiebreak_c1_7_20260730T204832Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c1_7_20260730T204832Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,90,supported
+exp_009_tiebreak_c1_7_20260730T204832Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c2_11_20260730T204832Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,50,supported
+exp_009_tiebreak_c2_11_20260730T204832Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.22556390977443597,supported
+exp_009_tiebreak_c2_11_20260730T204832Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,50,supported
+exp_009_tiebreak_c2_11_20260730T204832Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.22556390977443597,supported
+exp_009_tiebreak_c2_123_20260730T204833Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,90,supported
+exp_009_tiebreak_c2_123_20260730T204833Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.2857142857142858,supported
+exp_009_tiebreak_c2_123_20260730T204833Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,90,supported
+exp_009_tiebreak_c2_123_20260730T204833Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.2857142857142858,supported
+exp_009_tiebreak_c2_29_20260730T204833Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,50,supported
+exp_009_tiebreak_c2_29_20260730T204833Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.19548872180451138,supported
+exp_009_tiebreak_c2_29_20260730T204833Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,50,supported
+exp_009_tiebreak_c2_29_20260730T204833Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.19548872180451138,supported
+exp_009_tiebreak_c2_42_20260730T204833Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,50,supported
+exp_009_tiebreak_c2_42_20260730T204833Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.22556390977443597,supported
+exp_009_tiebreak_c2_42_20260730T204833Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,50,supported
+exp_009_tiebreak_c2_42_20260730T204833Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.22556390977443597,supported
+exp_009_tiebreak_c2_7_20260730T204833Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,50,supported
+exp_009_tiebreak_c2_7_20260730T204833Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.19548872180451138,supported
+exp_009_tiebreak_c2_7_20260730T204833Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,50,supported
+exp_009_tiebreak_c2_7_20260730T204833Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.19548872180451138,supported
+exp_009_tiebreak_c3_11_20260730T204833Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,948,supported
+exp_009_tiebreak_c3_11_20260730T204833Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_11_20260730T204833Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,948,supported
+exp_009_tiebreak_c3_11_20260730T204833Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_123_20260730T205015Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,856,supported
+exp_009_tiebreak_c3_123_20260730T205015Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_123_20260730T205015Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,856,supported
+exp_009_tiebreak_c3_123_20260730T205015Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_29_20260730T205158Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,808,supported
+exp_009_tiebreak_c3_29_20260730T205158Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_29_20260730T205158Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,808,supported
+exp_009_tiebreak_c3_29_20260730T205158Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_42_20260730T205341Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,908,supported
+exp_009_tiebreak_c3_42_20260730T205341Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_42_20260730T205341Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,908,supported
+exp_009_tiebreak_c3_42_20260730T205341Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_7_20260730T205522Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,784,supported
+exp_009_tiebreak_c3_7_20260730T205522Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c3_7_20260730T205522Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,784,supported
+exp_009_tiebreak_c3_7_20260730T205522Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.0,falsified
+exp_009_tiebreak_c4_11_20260730T205703Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,500609,supported
+exp_009_tiebreak_c4_11_20260730T205703Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_11_20260730T205703Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,500609,supported
+exp_009_tiebreak_c4_11_20260730T205703Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_123_20260730T210824Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,500597,supported
+exp_009_tiebreak_c4_123_20260730T210824Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_123_20260730T210824Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,500597,supported
+exp_009_tiebreak_c4_123_20260730T210824Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_29_20260730T211948Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,500622,supported
+exp_009_tiebreak_c4_29_20260730T211948Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_29_20260730T211948Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,500622,supported
+exp_009_tiebreak_c4_29_20260730T211948Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_42_20260730T213104Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,500622,supported
+exp_009_tiebreak_c4_42_20260730T213104Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_42_20260730T213104Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,500622,supported
+exp_009_tiebreak_c4_42_20260730T213104Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_7_20260730T214229Z,H1,"Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.
+",total_state_transitions,> 0,500658,supported
+exp_009_tiebreak_c4_7_20260730T214229Z,H2,"Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.
+",authority_concentration_gini,> 0,0.07259259259259254,supported
+exp_009_tiebreak_c4_7_20260730T214229Z,H3,"Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].
+",total_state_transitions,> 0,500658,supported
+exp_009_tiebreak_c4_7_20260730T214229Z,H4,"Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.
+",authority_concentration_gini,> 0,0.07259259259259254,supported

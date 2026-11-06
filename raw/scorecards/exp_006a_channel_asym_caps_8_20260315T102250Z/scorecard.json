@@ -1,0 +1,46 @@
+{
+  "experiment_id": "exp_006a_channel_asym_caps",
+  "seed": 8,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.08137614678899086,
+    "authority_concentration_gini_start": 0.04714285714285693,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0302,
+    "interpretive_drift_rate": 0.499054,
+    "total_state_transitions": 500646,
+    "total_reversions": 249527,
+    "cycling_events_count": 646,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": [
+    {
+      "id": "H13a_channel_persistence_under_asymmetry",
+      "description": "With both channels active, asymmetry should not collapse to k=1. Endpoint gini should remain above k=1 region.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "> 0.05",
+      "observed_value": 0.08137614678899086,
+      "result": "supported"
+    },
+    {
+      "id": "H13b_asymmetric_endpoint_elevated",
+      "description": "Expected asymmetric two-role endpoint should exceed the symmetric k=2 baseline (~0.0726) under W_forward=8, W_reversion=3 proxy caps.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": ">= 0.075",
+      "observed_value": 0.08137614678899086,
+      "result": "supported"
+    },
+    {
+      "id": "H13c_reversion_channel_active",
+      "description": "Reversion pathway remains active in this condition.\n",
+      "metric": "total_reversions",
+      "predicted_direction": "> 0",
+      "observed_value": 249527,
+      "result": "supported"
+    }
+  ]
+}

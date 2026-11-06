@@ -1,0 +1,77 @@
+# EXP-007 mechanism-isolation manifest
+# planning artifact: no runs executed by this file
+
+batch:
+  id: exp_007_mechanism_isolation
+  description: >
+    Mechanism-isolation tranche testing whether local transition eligibility, rather
+    than authority concentration, governs the observed k1-favored regime.
+  status: planned_not_executed
+
+baseline_scaffold:
+  canonical_scaffold_source: configs/exp_007_g2_x3.yaml
+  normalization_rule: >
+    Preserve topology, claim space, authority weights, and all non-targeted settings.
+    Only local confidence-threshold or local authority-type eligibility changes are permitted.
+  fixed_assumptions:
+    boundary: true
+    lineage: true
+    authority: true
+    mediation:
+      enabled: true
+      mode: structured
+    reversibility: true
+    observation: false
+    trust_network:
+      dynamic: false
+      initial_weights: uniform
+    topology:
+      type: small_world
+      k: 6
+      p: 0.1
+    ticks: 5000
+
+campaign:
+  id: camp.basin-boundary-mapping.eligibility-asymmetry-isolation.01
+  thesis: >
+    Directional basin bias emerges because the admissible path structure favors k1-supporting
+    trajectories while authority concentration remains comparatively distributed.
+  null: >
+    Observed k1 dominance is a sampling artefact or a secondary effect of latent authority concentration.
+
+strata:
+  - id: base
+    definition: baseline EXP-007 local eligibility structure
+  - id: conf_relax
+    definition: relax local confidence thresholds on the high-tolerance founder / fast-mover subgroups
+  - id: elig_narrow
+    definition: narrow local authority-type eligibility on the same subgroups while keeping authority_weight fixed
+
+points:
+  anchors: [G1, G3]
+  hinge: [G2]
+
+seeds:
+  anchors: [2, 8, 16]
+  hinge: [2, 8, 16, 23, 42]
+
+predictions:
+  - transition asymmetry should appear before endpoint asymmetry
+  - the hinge-point basin split should move under targeted eligibility perturbations
+  - k1-favored outcomes should remain compatible with low-to-moderate Gini
+
+readout:
+  primary:
+    - basin assignment
+    - authority_concentration_gini
+    - channel_top1_owner_overlap
+    - channel_specialization_tvd
+    - forward_channel_top1_share
+  event_log_required:
+    - state_transition
+    - transition_blocked
+    - lineage_challenge
+
+execution_notes:
+  cohort_id: grid-07-m1-mechanism-isolation
+  run_command_template: python3 run.py <config> --seed <seed>

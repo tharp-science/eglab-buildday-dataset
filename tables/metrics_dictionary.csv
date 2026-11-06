@@ -1,0 +1,43 @@
+metric,coverage_runs,dtype,n_distinct,min,median,max,description
+classifier,705,text,1.0,,,,Classifier identifier used to assign structural_k.
+structural_k,705,text,12.0,,,,"Attractor label (k0/k1/k2/k3/off_attractor) assigned by classifier INT-175 by nearest-neighbour bucketing of the final Gini onto config-implied attractor values. It is a function of Gini, not of ownership; see README caveats."
+total_claims,701,numeric,2.0,10.0,100.0,100.0,Number of claims in the run.
+operational_k,637,numeric,3.0,0.0,1.0,2.0,Number of distinct authority centres measured from channel ownership (ownership-based; independent of structural_k).
+mediation_load,206,numeric,38.0,0.0,23.15,25.11,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+structural_tier,691,text,1.0,,,,Classifier confidence tier for the structural_k assignment.
+ct_forward_share,206,numeric,39.0,0.0,0.9992,0.9992,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+total_reversions,701,numeric,69.0,0.0,249537.0,249576.0,Count of reversions (reversibility primitive).
+epistemic_accuracy,701,numeric,3.0,0.35,0.35,0.7,Share of claims whose settled state matches ground truth (definition in epilab scorecard.py).
+vocabulary_version,705,numeric,1.0,2.0,2.0,2.0,Version of the outcome vocabulary used by the classifier.
+forward_total_early,206,numeric,36.0,50.0,25215.0,25341.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+cycling_events_count,696,numeric,71.0,0.0,625.0,2575.0,Count of claims cycling between states.
+false_consensus_rate,206,numeric,2.0,0.2,0.65,0.65,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+false_consensus_count,206,numeric,2.0,2.0,65.0,65.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+claims_operationalised,701,numeric,2.0,10.0,100.0,100.0,Claims that reached an operational state.
+ct_forward_share_early,206,numeric,29.0,0.0,0.99207,0.99211,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+observation_error_rate,206,numeric,1.0,0.0,0.0,0.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+interpretive_drift_rate,701,numeric,69.0,0.0,0.49907,0.49915,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+total_state_transitions,701,numeric,84.0,40.0,500625.0,502575.0,Count of claim state transitions.
+epistemic_stability_index,701,numeric,10.0,0.0,0.0,1.0,Stability index of claim states over the run (definition in scorecard.py).
+post_shock_recovery_ticks,0,text,0.0,,,,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+channel_early_horizon_tick,637,numeric,1.0,500.0,500.0,500.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+channel_specialization_tvd,629,numeric,49.0,0.0,0.0,1.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+channel_top1_owner_overlap,629,numeric,2.0,0.0,1.0,1.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+esi_b5_constraint_violated,696,numeric,1.0,0.0,0.0,0.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+forward_channel_top1_share,637,numeric,61.0,0.14347,1.0,1.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+b3_absorbing_state_artefact,696,numeric,2.0,0.0,0.0,1.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+forward_channel_transitions,637,numeric,69.0,40.0,250462.0,251437.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+authority_concentration_gini,701,numeric,17.0,0.0,0.03808,0.28571,Gini coefficient of authority weight across nodes at the final tick (the headline concentration measure).
+reversion_channel_top1_share,629,numeric,16.0,0.22768,1.0,1.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+stripped_group_forward_share,12,numeric,1.0,0.0,0.0,0.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+reversion_channel_transitions,637,numeric,68.0,0.0,249537.0,249576.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+channel_capture_share_threshold,637,numeric,1.0,0.8,0.8,0.8,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+contested_claim_resolution_rate,701,numeric,54.0,0.005,25.0284,25.1254,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+channel_top1_owner_overlap_early,629,numeric,2.0,0.0,1.0,1.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+authority_concentration_gini_start,701,numeric,7.0,0.0,0.03808,0.05714,Same Gini at the first recorded tick.
+stripped_group_forward_share_early,12,numeric,1.0,0.0,0.0,0.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+forward_capture_tick_top1_ge_threshold,637,numeric,1.0,0.0,0.0,0.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+reversion_capture_tick_top1_ge_threshold,629,numeric,1.0,4.0,4.0,4.0,Not documented here; see epilab/engine/scorecard.py (names are self-describing but units were not verified for this package).
+auth_type_forward_counts,118,nested (see metrics_nested_long.csv),,,,,Per-key counts of forward transitions by authority type / node-group prefix (early window where suffixed _early).
+auth_type_forward_counts_early,118,nested (see metrics_nested_long.csv),,,,,Per-key counts of forward transitions by authority type / node-group prefix (early window where suffixed _early).
+node_group_forward_counts_early,195,nested (see metrics_nested_long.csv),,,,,Per-key counts of forward transitions by authority type / node-group prefix (early window where suffixed _early).

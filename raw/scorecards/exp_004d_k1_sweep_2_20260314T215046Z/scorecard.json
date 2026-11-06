@@ -1,0 +1,38 @@
+{
+  "experiment_id": "exp_004d_k1_sweep",
+  "seed": 2,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.07259259259259254,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0292,
+    "interpretive_drift_rate": 0.499058,
+    "total_state_transitions": 500625,
+    "total_reversions": 249529,
+    "cycling_events_count": 625,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": [
+    {
+      "id": "H11d_k1_gini_flat",
+      "description": "In a k=1 run (S* is fn or fm), Gini_end = Gini_start. The Gini does not grow after tick 0 because the single dominant node wins all transition types and no second node ever accumulates weight.\n",
+      "metric": "gini_delta_start_to_end",
+      "predicted_direction": "\u2248 0.0",
+      "observed_value": null,
+      "result": "untested"
+    },
+    {
+      "id": "H11d_k1_gini_end",
+      "description": "Gini_end = 99/2600 \u2248 0.038077 in the k=1 case. This is the same value as Gini_start in k=2 runs, but here it is also the equilibrium \u2014 it neither rises nor falls after tick 0. Derivation: G(N=100, k=1, W=5.0, w\u2080=1.0) = 99/2600.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "",
+      "observed_value": 0.07259259259259254,
+      "result": "untestable"
+    }
+  ]
+}

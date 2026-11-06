@@ -1,0 +1,21 @@
+{
+  "experiment_id": "exp_003b_null",
+  "seed": 7,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.0,
+    "authority_concentration_gini_start": 0.0,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 1.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": true,
+    "contested_claim_resolution_rate": 0.02,
+    "interpretive_drift_rate": 0.0,
+    "total_state_transitions": 500,
+    "total_reversions": 0,
+    "cycling_events_count": 0,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": []
+}

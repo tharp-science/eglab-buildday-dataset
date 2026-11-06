@@ -1,0 +1,6 @@
+id,title,varies,invariants,status,created_at,updated_at,program_id,slug,question,decision_target,schema_version,legacy_refs
+camp.unknown.imported-history,Unknown Imported History,{},{},historical,2026-03-23 01:40:07.09878+00,2026-03-23 01:40:07.09878+00,,,,,lineage.v1,[]
+camp.basin-boundary-mapping.na-diagnostic-resolution.01,NA Diagnostic Resolution 01,"{""items"": []}","{""items"": []}",active,2026-03-23 01:40:07.09878+00,2026-07-30 07:43:19.425359+00,,,,,lineage.v1,[]
+camp.basin-boundary-mapping.eligibility-asymmetry-isolation.01,Eligibility Asymmetry Isolation 01,"{""items"": [""eligibility"", ""authority_concentration""]}","{""items"": []}",active,2026-03-23 01:40:07.09878+00,2026-07-30 07:43:19.425359+00,,,,,lineage.v1,[]
+camp.legacy.pre-grid-architecture.01,Legacy Pre-Grid Architecture,"{""items"": [""primitive_activation"", ""interaction_density"", ""overlap"", ""reversibility"", ""channel_caps""]}","{""items"": []}",historical,2026-03-23 01:40:07.09878+00,2026-07-30 07:43:19.425359+00,,,,,lineage.v1,[]
+camp.basin-boundary-mapping.transition-region-clarification.01,Transition Region Clarification 01,"{""items"": []}","{""items"": []}",active,2026-03-23 01:40:07.09878+00,2026-07-30 07:43:19.425359+00,,,,,lineage.v1,[]

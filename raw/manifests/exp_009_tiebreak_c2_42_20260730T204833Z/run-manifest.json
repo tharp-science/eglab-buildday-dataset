@@ -1,0 +1,178 @@
+{
+  "run_id": "exp_009_tiebreak_c2_42_20260730T204833Z",
+  "experiment_id": "exp_009_tiebreak_c2",
+  "seed": 42,
+  "created_at": "2026-07-30T20:48:33.277377+00:00",
+  "started_at_hint": "20260730T204833Z",
+  "source_config_path": "/srv/eglab/framework/inbox/exp_009_tiebreak_c2_s42.yaml",
+  "config": {
+    "experiment": {
+      "id": "exp_009_tiebreak_c2",
+      "seed": 42,
+      "successor_selection": "seeded_random",
+      "description": "Full primitives, exploratory scale, unbiased successor ordering. Pairs with c1 by seed. Structurally identical to exp_001 apart from the declared ordering \u2014 see the note below.\n",
+      "ticks": 500,
+      "record_interval": 10
+    },
+    "nodes": [
+      {
+        "id": "node_founding_1",
+        "persona": "founding_node"
+      },
+      {
+        "id": "node_founding_2",
+        "persona": "founding_node"
+      },
+      {
+        "id": "node_peripheral_1",
+        "persona": "peripheral_node"
+      },
+      {
+        "id": "node_peripheral_2",
+        "persona": "peripheral_node"
+      },
+      {
+        "id": "node_peripheral_3",
+        "persona": "peripheral_node"
+      },
+      {
+        "id": "node_mediating_1",
+        "persona": "mediating_node"
+      },
+      {
+        "id": "node_mediating_2",
+        "persona": "mediating_node"
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim_001",
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.4,
+        "ambiguity": 0.3
+      },
+      {
+        "id": "claim_002",
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id": "claim_003",
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.6,
+        "ambiguity": 0.4
+      },
+      {
+        "id": "claim_004",
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.3,
+        "ambiguity": 0.6
+      },
+      {
+        "id": "claim_005",
+        "initial_state": "unknown",
+        "ground_truth": null,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id": "claim_006",
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.7,
+        "ambiguity": 0.3
+      },
+      {
+        "id": "claim_007",
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.4,
+        "ambiguity": 0.7
+      },
+      {
+        "id": "claim_008",
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.5,
+        "ambiguity": 0.4
+      },
+      {
+        "id": "claim_009",
+        "initial_state": "unknown",
+        "ground_truth": null,
+        "difficulty": 0.6,
+        "ambiguity": 0.6
+      },
+      {
+        "id": "claim_010",
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.4,
+        "ambiguity": 0.5
+      }
+    ],
+    "network": {
+      "topology": "small_world",
+      "k": 4,
+      "p": 0.1
+    },
+    "primitives": {
+      "boundary": true,
+      "lineage": {
+        "enabled": true,
+        "retention_probability": 1.0
+      },
+      "authority": true,
+      "mediation": {
+        "enabled": true,
+        "mode": "structured"
+      },
+      "confidence": {
+        "enabled": true,
+        "threshold_mean": 0.5,
+        "threshold_variance": 0.0
+      },
+      "reversibility": true,
+      "observation": false
+    },
+    "trust_network": {
+      "dynamic": false,
+      "update_rule": null,
+      "initial_weights": "uniform"
+    },
+    "hypotheses": [
+      {
+        "id": "H1",
+        "description": "Exploratory-scale contrast. Per-seed ratio c1/c2 on total_state_transitions and on contested_claim_resolution_rate, paired by seed, summarised by median across the five seeds. Predicted to land in [1, 5]. Falsified if the median ratio is >= 10 on either metric. Not pooled: the ratio is formed within a seed before any aggregation.\n",
+        "metric": "total_state_transitions",
+        "predicted_direction": "> 0",
+        "note": "Estimated quantity, not a predicted value. The declared prediction is the interval, evaluated on the paired median.\n"
+      },
+      {
+        "id": "H2",
+        "description": "Exact reproduction under an unbiased ordering. c2 at seed 42 must reproduce exp_001's recorded metrics exactly; that is the only seed with a prior reference. c4 must give authority_concentration_gini = 49/675 on every seed. Falsified by any deviation beyond floating-point precision.\n",
+        "metric": "authority_concentration_gini",
+        "predicted_direction": "> 0",
+        "note": "Full-governance runs are verified policy-invariant (INT-196 test b), so this is a control: it should hold regardless of ordering, and its failure would indicate the substream perturbs the main RNG stream.\n"
+      },
+      {
+        "id": "H3",
+        "description": "Primary-scale contrast. Per-seed ratio c3/c4 on total_state_transitions, paired by seed, summarised by median. Predicted within one order of magnitude. Falsified if the median ratio falls outside [0.01, 100].\n",
+        "metric": "total_state_transitions",
+        "predicted_direction": "> 0",
+        "note": "Estimated quantity, not a predicted value.\n"
+      },
+      {
+        "id": "H4",
+        "description": "Determinism. Re-running any config in this batch reproduces its scorecard bit-identically. Falsifies independently of H1-H3 and invalidates the batch if it fails.\n",
+        "metric": "authority_concentration_gini",
+        "predicted_direction": "> 0"
+      }
+    ]
+  }
+}

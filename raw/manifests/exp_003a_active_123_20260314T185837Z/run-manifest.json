@@ -1,0 +1,156 @@
+{
+  "run_id": "exp_003a_active_123_20260314T185837Z",
+  "experiment_id": "exp_003a_active",
+  "seed": 123,
+  "created_at": "2026-03-22T18:00:21.085914+00:00",
+  "started_at_hint": "20260314T185837Z",
+  "source_config_path": "/srv/eglab/data/config_snapshots/exp_003a_active_123_20260314T185837Z.yaml",
+  "config": {
+    "experiment": {
+      "id": "exp_003a_active",
+      "seed": 42,
+      "description": "Batch 03 Tier 1 \u2014 founding proportion reduced to 4/100 (4%). 100 nodes, k=6 small-world, full primitive set, claim cycling enabled. Tests whether authority equilibrium scales with founding proportion. Primary metric: Gini delta from exp_003a_null at matching seed. Prediction: Gini delta < 0.073 (Batch 02 fixed point).\n",
+      "ticks": 5000,
+      "record_interval": 50
+    },
+    "node_groups": [
+      {
+        "persona": "founding_node",
+        "count": 4,
+        "id_prefix": "fn_"
+      },
+      {
+        "persona": "peripheral_node",
+        "count": 56,
+        "id_prefix": "pn_"
+      },
+      {
+        "persona": "mediating_node",
+        "count": 20,
+        "id_prefix": "mn_"
+      },
+      {
+        "persona": "skeptical_peer",
+        "count": 12,
+        "id_prefix": "sp_"
+      },
+      {
+        "persona": "fast_mover",
+        "count": 8,
+        "id_prefix": "fm_"
+      }
+    ],
+    "claim_groups": [
+      {
+        "id_prefix": "cl_easy_true_",
+        "count": 12,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.2,
+        "ambiguity": 0.2
+      },
+      {
+        "id_prefix": "cl_easy_false_",
+        "count": 20,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.2,
+        "ambiguity": 0.2
+      },
+      {
+        "id_prefix": "cl_med_true_",
+        "count": 14,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id_prefix": "cl_med_false_",
+        "count": 20,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id_prefix": "cl_hard_true_",
+        "count": 9,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.8,
+        "ambiguity": 0.7
+      },
+      {
+        "id_prefix": "cl_hard_false_",
+        "count": 25,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.8,
+        "ambiguity": 0.7
+      }
+    ],
+    "network": {
+      "topology": "small_world",
+      "k": 6,
+      "p": 0.1
+    },
+    "primitives": {
+      "boundary": true,
+      "lineage": {
+        "enabled": true,
+        "retention_probability": 1.0
+      },
+      "authority": true,
+      "mediation": {
+        "enabled": true,
+        "mode": "structured"
+      },
+      "confidence": {
+        "enabled": true,
+        "threshold_mean": 0.5,
+        "threshold_variance": 0.1
+      },
+      "reversibility": true,
+      "observation": {
+        "enabled": false
+      }
+    },
+    "trust_network": {
+      "dynamic": false,
+      "update_rule": null,
+      "initial_weights": "uniform"
+    },
+    "dynamics": {
+      "revisability_rate": 0.005,
+      "min_ticks_before_archive": 100,
+      "stability_window_fraction": 0.025
+    },
+    "events": [],
+    "hypotheses": [
+      {
+        "id": "H10a",
+        "description": "Founding proportion reduction lowers authority equilibrium: Gini delta (active \u2212 null) is less than 0.073 at equilibrium. Tests whether temporal position (founding proportion) governs the fixed point.\n",
+        "metric": "authority_concentration_gini_delta_from_null",
+        "predicted_direction": "< 0.073",
+        "window": [
+          3000,
+          5000
+        ],
+        "note": "Batch 02 fixed point: Gini delta = 0.07259 (identical across k=6/12/20, seeds 42/123/7). If this run produces a lower delta, founding proportion is confirmed as the governing variable. If delta \u2248 0.073 regardless of founding count, the fixed point is determined by something else in the authority update rule \u2014 H10 requires revision.\n"
+      },
+      {
+        "id": "H10b",
+        "description": "System remains alive: total state transitions exceed 10\u00d7 claim count. Confirms cycling mechanism is active at reduced founding proportion.\n",
+        "metric": "total_state_transitions",
+        "predicted_direction": "> 1000",
+        "window": [
+          0,
+          5000
+        ],
+        "note": "Diagnostic only. If transitions < 1000, absorbing state has returned \u2014 do not record epistemic metrics.\n"
+      }
+    ]
+  },
+  "scorecard_source": "/srv/eglab/data/runs/exp_003a_active_123_20260314T185837Z/scorecard.json"
+}

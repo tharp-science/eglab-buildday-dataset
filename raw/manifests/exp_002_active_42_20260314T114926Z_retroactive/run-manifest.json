@@ -1,0 +1,191 @@
+{
+  "run_id": "exp_002_active_42_20260314T114926Z_retroactive",
+  "experiment_id": "exp_002_active_42",
+  "seed": 42,
+  "created_at": "2026-03-22T18:00:20.942571+00:00",
+  "started_at_hint": "retroactive",
+  "source_config_path": "/srv/eglab/data/config_snapshots/exp_002_active_42_20260314T114926Z_retroactive.yaml",
+  "config": {
+    "experiment": {
+      "id": "exp_002_active",
+      "seed": 42,
+      "description": "Large-network authority gravity test. 100 nodes, 100 claims, small-world topology, full primitive set, static trust, claim cycling enabled. Tests whether authority gravity compounds continuously at 100-node scale or saturates as in the 7-node batch. Primary metric: Gini delta from scale-matched null baseline. Secondary: ESI stability, resolution rate.\n",
+      "ticks": 5000,
+      "record_interval": 50
+    },
+    "node_groups": [
+      {
+        "persona": "founding_node",
+        "count": 8,
+        "id_prefix": "fn_"
+      },
+      {
+        "persona": "peripheral_node",
+        "count": 52,
+        "id_prefix": "pn_"
+      },
+      {
+        "persona": "mediating_node",
+        "count": 20,
+        "id_prefix": "mn_"
+      },
+      {
+        "persona": "skeptical_peer",
+        "count": 12,
+        "id_prefix": "sp_"
+      },
+      {
+        "persona": "fast_mover",
+        "count": 8,
+        "id_prefix": "fm_"
+      }
+    ],
+    "claim_groups": [
+      {
+        "id_prefix": "cl_easy_true_",
+        "count": 12,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.2,
+        "ambiguity": 0.2
+      },
+      {
+        "id_prefix": "cl_easy_false_",
+        "count": 20,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.2,
+        "ambiguity": 0.2
+      },
+      {
+        "id_prefix": "cl_med_true_",
+        "count": 14,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id_prefix": "cl_med_false_",
+        "count": 20,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id_prefix": "cl_hard_true_",
+        "count": 9,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.8,
+        "ambiguity": 0.7
+      },
+      {
+        "id_prefix": "cl_hard_false_",
+        "count": 25,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.8,
+        "ambiguity": 0.7
+      }
+    ],
+    "network": {
+      "topology": "small_world",
+      "k": 6,
+      "p": 0.1
+    },
+    "primitives": {
+      "boundary": true,
+      "lineage": {
+        "enabled": true,
+        "retention_probability": 1.0
+      },
+      "authority": true,
+      "mediation": {
+        "enabled": true,
+        "mode": "structured"
+      },
+      "confidence": {
+        "enabled": true,
+        "threshold_mean": 0.5,
+        "threshold_variance": 0.1
+      },
+      "reversibility": true,
+      "observation": {
+        "enabled": false
+      }
+    },
+    "trust_network": {
+      "dynamic": false,
+      "update_rule": null,
+      "initial_weights": "uniform"
+    },
+    "dynamics": {
+      "revisability_rate": 0.02,
+      "stability_window_fraction": 0.005,
+      "min_ticks_before_archive": 100
+    },
+    "events": [],
+    "hypotheses": [
+      {
+        "id": "H1",
+        "description": "Authority gravity emerges at 100-node scale: Gini rises from null baseline",
+        "metric": "authority_concentration_gini",
+        "predicted_direction": "increasing",
+        "window": [
+          0,
+          2000
+        ],
+        "note": "Predicted to rise as in 7-node batch. If flat, the mechanism does not generalise to this network size \u2014 a significant negative finding.\n"
+      },
+      {
+        "id": "H2",
+        "description": "Authority gravity exceeds 7-node equilibrium: Gini delta (active minus null) is greater than 0.175 at equilibrium \u2014 the saturation ceiling from the prior batch. Tests whether larger interaction surface unlocks compounding.\n",
+        "metric": "authority_concentration_gini_delta_from_null",
+        "predicted_direction": "increasing",
+        "threshold_min": 0.175,
+        "window": [
+          3000,
+          5000
+        ],
+        "note": "This is the hypothesis that distinguishes topology-bounded saturation from topology-independent compounding. If delta > 0.175: compounding is topology-sensitive and unlocks at scale. If delta \u2248 0.175: saturation is intrinsic to the mechanism regardless of network size.\n"
+      },
+      {
+        "id": "H3",
+        "description": "Authority gravity does not reach equilibrium by tick 5000: Gini is still rising in the final 1000 ticks. Tests whether compounding is unbounded at this scale or saturates at a higher ceiling.\n",
+        "metric": "authority_concentration_gini",
+        "predicted_direction": "increasing",
+        "window": [
+          4000,
+          5000
+        ],
+        "note": "If Gini is flat in this window, gravity saturates (higher ceiling than 7-node but still bounded). If still rising, gravity may be unbounded at 100-node scale \u2014 consistent with the vault's original claim.\n"
+      },
+      {
+        "id": "H4",
+        "description": "ESI remains high (\u2265 0.8) throughout: full governance is stable at scale",
+        "metric": "epistemic_stability_index",
+        "predicted_direction": "flat",
+        "threshold_min": 0.8,
+        "window": [
+          500,
+          5000
+        ],
+        "note": "If ESI degrades below 0.8 in a high-Gini regime, authority concentration eventually undermines the epistemic stability it initially produced. This would be a new finding not observed in the 7-node batch.\n"
+      },
+      {
+        "id": "H5",
+        "description": "Claim cycling sustains live system: transitions continue past tick 1000",
+        "metric": "state_transition_count",
+        "predicted_direction": "increasing",
+        "window": [
+          1000,
+          5000
+        ],
+        "note": "Diagnostic for the revisability_rate mechanism. If transition count plateaus after tick 1000, the cycling rate is too low and the system has entered a slow-motion absorbing state. Increase revisability_rate and rerun.\n"
+      }
+    ]
+  },
+  "scorecard_source": "/srv/eglab/data/runs/exp_002_active_42_20260314T114926Z_retroactive/scorecard.json"
+}

@@ -1,0 +1,62 @@
+{
+  "experiment_id": "exp_002_active",
+  "seed": 42,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.07259259259259254,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.1218,
+    "interpretive_drift_rate": 0.497214,
+    "total_state_transitions": 502498,
+    "total_reversions": 248607,
+    "cycling_events_count": 2498,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "description": "Authority gravity emerges at 100-node scale: Gini rises from null baseline",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "increasing",
+      "observed_value": 0.07259259259259254,
+      "result": "supported"
+    },
+    {
+      "id": "H2",
+      "description": "Authority gravity exceeds 7-node equilibrium: Gini delta (active minus null) is greater than 0.175 at equilibrium \u2014 the saturation ceiling from the prior batch. Tests whether larger interaction surface unlocks compounding.\n",
+      "metric": "authority_concentration_gini_delta_from_null",
+      "predicted_direction": "increasing",
+      "observed_value": null,
+      "result": "untested"
+    },
+    {
+      "id": "H3",
+      "description": "Authority gravity does not reach equilibrium by tick 5000: Gini is still rising in the final 1000 ticks. Tests whether compounding is unbounded at this scale or saturates at a higher ceiling.\n",
+      "metric": "authority_concentration_gini",
+      "predicted_direction": "increasing",
+      "observed_value": 0.07259259259259254,
+      "result": "supported"
+    },
+    {
+      "id": "H4",
+      "description": "ESI remains high (\u2265 0.8) throughout: full governance is stable at scale",
+      "metric": "epistemic_stability_index",
+      "predicted_direction": "flat",
+      "observed_value": 0.0,
+      "result": "untested"
+    },
+    {
+      "id": "H5",
+      "description": "Claim cycling sustains live system: transitions continue past tick 1000",
+      "metric": "state_transition_count",
+      "predicted_direction": "increasing",
+      "observed_value": null,
+      "result": "untested"
+    }
+  ]
+}

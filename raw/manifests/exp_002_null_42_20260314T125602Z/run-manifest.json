@@ -1,0 +1,167 @@
+{
+  "run_id": "exp_002_null_42_20260314T125602Z",
+  "experiment_id": "exp_002_null",
+  "seed": 42,
+  "created_at": "2026-03-22T18:00:20.960707+00:00",
+  "started_at_hint": "20260314T125602Z",
+  "source_config_path": "/srv/eglab/data/config_snapshots/exp_002_null_42_20260314T125602Z.yaml",
+  "config": {
+    "experiment": {
+      "id": "exp_002_null",
+      "seed": 42,
+      "description": "Scale-matched null baseline for Exp-002 authority gravity test. 100 nodes, 100 claims, small-world topology. All primitives disabled. Establishes the Gini baseline and ESI floor at this network scale. Without this run, the active experiment's Gini readings are uninterpretable.\n",
+      "ticks": 5000,
+      "record_interval": 50
+    },
+    "node_groups": [
+      {
+        "persona": "founding_node",
+        "count": 8,
+        "id_prefix": "fn_"
+      },
+      {
+        "persona": "peripheral_node",
+        "count": 52,
+        "id_prefix": "pn_"
+      },
+      {
+        "persona": "mediating_node",
+        "count": 20,
+        "id_prefix": "mn_"
+      },
+      {
+        "persona": "skeptical_peer",
+        "count": 12,
+        "id_prefix": "sp_"
+      },
+      {
+        "persona": "fast_mover",
+        "count": 8,
+        "id_prefix": "fm_"
+      }
+    ],
+    "claim_groups": [
+      {
+        "id_prefix": "cl_easy_true_",
+        "count": 12,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.2,
+        "ambiguity": 0.2
+      },
+      {
+        "id_prefix": "cl_easy_false_",
+        "count": 20,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.2,
+        "ambiguity": 0.2
+      },
+      {
+        "id_prefix": "cl_med_true_",
+        "count": 14,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id_prefix": "cl_med_false_",
+        "count": 20,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id_prefix": "cl_hard_true_",
+        "count": 9,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.8,
+        "ambiguity": 0.7
+      },
+      {
+        "id_prefix": "cl_hard_false_",
+        "count": 25,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.8,
+        "ambiguity": 0.7
+      }
+    ],
+    "network": {
+      "topology": "small_world",
+      "k": 6,
+      "p": 0.1
+    },
+    "primitives": {
+      "boundary": false,
+      "lineage": {
+        "enabled": false,
+        "retention_probability": 0.0
+      },
+      "authority": false,
+      "mediation": {
+        "enabled": false,
+        "mode": "none"
+      },
+      "confidence": {
+        "enabled": false,
+        "threshold_mean": 0.0,
+        "threshold_variance": 0.0
+      },
+      "reversibility": false,
+      "observation": {
+        "enabled": false,
+        "accuracy_mean": 1.0,
+        "accuracy_variance": 0.0
+      }
+    },
+    "trust_network": {
+      "dynamic": false,
+      "update_rule": null,
+      "initial_weights": "uniform"
+    },
+    "dynamics": {
+      "revisability_rate": 0.0,
+      "stability_window_fraction": 0.05
+    },
+    "events": [],
+    "hypotheses": [
+      {
+        "id": "H1",
+        "description": "Null run produces flat Gini at starting baseline (no primitive-driven concentration)",
+        "metric": "authority_concentration_gini",
+        "predicted_direction": "flat",
+        "window": [
+          0,
+          5000
+        ]
+      },
+      {
+        "id": "H2",
+        "description": "Null run produces ESI near 0 (claims resolve chaotically without governance)",
+        "metric": "epistemic_stability_index",
+        "predicted_direction": "flat",
+        "threshold_max": 0.2,
+        "window": [
+          500,
+          5000
+        ]
+      },
+      {
+        "id": "H3",
+        "description": "Null baseline Gini at equilibrium provides scale reference for active experiment",
+        "metric": "authority_concentration_gini",
+        "predicted_direction": "flat",
+        "window": [
+          2000,
+          5000
+        ],
+        "note": "Record this value. The active experiment's Gini delta is interpreted against it."
+      }
+    ]
+  },
+  "scorecard_source": "/srv/eglab/data/runs/exp_002_null_42_20260314T125602Z/scorecard.json"
+}

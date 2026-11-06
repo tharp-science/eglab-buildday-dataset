@@ -1,0 +1,32 @@
+{
+  "experiment_id": "exp_007_densify_g5p5_x7",
+  "seed": 23,
+  "ticks": 5000,
+  "metrics": {
+    "authority_concentration_gini": 0.03807692307692312,
+    "authority_concentration_gini_start": 0.03807692307692312,
+    "epistemic_accuracy": 0.35,
+    "epistemic_stability_index": 0.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": false,
+    "contested_claim_resolution_rate": 25.0296,
+    "interpretive_drift_rate": 0.49906,
+    "total_state_transitions": 500632,
+    "total_reversions": 249530,
+    "forward_channel_transitions": 250470,
+    "reversion_channel_transitions": 249530,
+    "channel_top1_owner_overlap": 1.0,
+    "channel_top1_owner_overlap_early": 1.0,
+    "channel_specialization_tvd": 0.0,
+    "forward_channel_top1_share": 1.0,
+    "reversion_channel_top1_share": 1.0,
+    "forward_capture_tick_top1_ge_threshold": 0,
+    "reversion_capture_tick_top1_ge_threshold": 4,
+    "channel_capture_share_threshold": 0.8,
+    "channel_early_horizon_tick": 500,
+    "cycling_events_count": 632,
+    "claims_operationalised": 100,
+    "total_claims": 100
+  },
+  "hypotheses": []
+}

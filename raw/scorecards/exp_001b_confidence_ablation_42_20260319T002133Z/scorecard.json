@@ -1,0 +1,57 @@
+{
+  "experiment_id": "exp_001b_confidence_ablation",
+  "seed": 42,
+  "ticks": 500,
+  "metrics": {
+    "authority_concentration_gini": 0.17460317460317465,
+    "authority_concentration_gini_start": 0.057142857142857384,
+    "epistemic_accuracy": 0.7,
+    "epistemic_stability_index": 1.0,
+    "esi_b5_constraint_violated": false,
+    "b3_absorbing_state_artefact": true,
+    "contested_claim_resolution_rate": 0.02,
+    "interpretive_drift_rate": 0.0,
+    "total_state_transitions": 40,
+    "total_reversions": 0,
+    "forward_channel_transitions": 40,
+    "reversion_channel_transitions": 0,
+    "channel_top1_owner_overlap": null,
+    "channel_top1_owner_overlap_early": null,
+    "channel_specialization_tvd": null,
+    "forward_channel_top1_share": 0.75,
+    "reversion_channel_top1_share": null,
+    "forward_capture_tick_top1_ge_threshold": 0,
+    "reversion_capture_tick_top1_ge_threshold": null,
+    "channel_capture_share_threshold": 0.8,
+    "channel_early_horizon_tick": 500,
+    "cycling_events_count": 0,
+    "claims_operationalised": 10,
+    "total_claims": 10
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "description": "Disabling Confidence raises total_reversions relative to Exp-001 (0 reversions), indicating that Confidence is independently responsible for part of the reversion suppression in full governance \u2014 not just Reversibility.\n",
+      "metric": "total_reversions",
+      "predicted_direction": "increasing",
+      "observed_value": 0,
+      "result": "untested"
+    },
+    {
+      "id": "H2",
+      "description": "Disabling Confidence raises contested_claim_resolution_rate relative to Exp-001 (0.02), because without a confidence gate, contested claims resolve faster (Premature Binary Collapse failure mode). Rate is predicted to be significantly above 0.02 and closer to the null baseline (2.5).\n",
+      "metric": "contested_claim_resolution_rate",
+      "predicted_direction": "increasing",
+      "observed_value": 0.02,
+      "result": "untested"
+    },
+    {
+      "id": "H3",
+      "description": "epistemic_accuracy decreases relative to Exp-001 (0.6) when Confidence is disabled, because without the threshold gate, false claims are operationalised at the same rate as true ones.\n",
+      "metric": "epistemic_accuracy",
+      "predicted_direction": "decreasing",
+      "observed_value": 0.7,
+      "result": "untested"
+    }
+  ]
+}

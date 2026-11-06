@@ -1,0 +1,162 @@
+{
+  "run_id": "exp_008_channels_c3_307_20260727T190507Z",
+  "experiment_id": "exp_008_channels_c3",
+  "seed": 307,
+  "created_at": "2026-07-27T19:05:07.344520+00:00",
+  "started_at_hint": "20260727T190507Z",
+  "source_config_path": "/srv/eglab/framework/inbox/exp_008_channels_c3_s307.yaml",
+  "config": {
+    "experiment": {
+      "id": "exp_008_channels_c3",
+      "seed": 307,
+      "description": "Three disjoint eligibility classes. Group X holds control/temporal only; group Y holds signal/perceptual and clears the tolerance gate; group Z holds signal/perceptual but is below the gate, so it can act on forward signal/perceptual transitions but never propose a reversion. Predicted equilibrium k = 3.\n",
+      "ticks": 5000,
+      "record_interval": 50
+    },
+    "node_groups": [
+      {
+        "persona": "peripheral_node",
+        "id_prefix": "ct_",
+        "count": 34,
+        "authority_types": [
+          "control",
+          "temporal"
+        ],
+        "reversibility_tolerance": 0.1
+      },
+      {
+        "persona": "peripheral_node",
+        "id_prefix": "spr_",
+        "count": 33,
+        "authority_types": [
+          "signal",
+          "perceptual"
+        ],
+        "reversibility_tolerance": 0.65
+      },
+      {
+        "persona": "peripheral_node",
+        "id_prefix": "spn_",
+        "count": 33,
+        "authority_types": [
+          "signal",
+          "perceptual"
+        ],
+        "reversibility_tolerance": 0.1
+      }
+    ],
+    "claim_groups": [
+      {
+        "id_prefix": "cl_easy_true_",
+        "count": 12,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.2,
+        "ambiguity": 0.2
+      },
+      {
+        "id_prefix": "cl_easy_false_",
+        "count": 20,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.2,
+        "ambiguity": 0.2
+      },
+      {
+        "id_prefix": "cl_med_true_",
+        "count": 14,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id_prefix": "cl_med_false_",
+        "count": 20,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.5,
+        "ambiguity": 0.5
+      },
+      {
+        "id_prefix": "cl_hard_true_",
+        "count": 9,
+        "initial_state": "unknown",
+        "ground_truth": true,
+        "difficulty": 0.8,
+        "ambiguity": 0.7
+      },
+      {
+        "id_prefix": "cl_hard_false_",
+        "count": 25,
+        "initial_state": "unknown",
+        "ground_truth": false,
+        "difficulty": 0.8,
+        "ambiguity": 0.7
+      }
+    ],
+    "network": {
+      "topology": "small_world",
+      "k": 6,
+      "p": 0.1
+    },
+    "primitives": {
+      "boundary": true,
+      "lineage": {
+        "enabled": true,
+        "retention_probability": 1.0
+      },
+      "authority": true,
+      "mediation": {
+        "enabled": true,
+        "mode": "structured"
+      },
+      "confidence": {
+        "enabled": true,
+        "threshold_mean": 0.5,
+        "threshold_variance": 0.1
+      },
+      "reversibility": true,
+      "observation": {
+        "enabled": false
+      }
+    },
+    "trust_network": {
+      "dynamic": false,
+      "update_rule": null,
+      "initial_weights": "uniform"
+    },
+    "dynamics": {
+      "revisability_rate": 0.02,
+      "stability_window_fraction": 0.005,
+      "min_ticks_before_archive": 100
+    },
+    "events": [],
+    "analysis": {
+      "channel_capture_share_threshold": 0.8,
+      "channel_early_horizon_tick": 500
+    },
+    "hypotheses": [
+      {
+        "id": "H1",
+        "description": "Equilibrium authority concentration tracks the closed form for k = 3 disjoint eligibility classes (predicted gini above the k=2 value 0.072593).",
+        "metric": "authority_concentration_gini",
+        "predicted_direction": "increasing",
+        "window": [
+          4000,
+          5000
+        ]
+      },
+      {
+        "id": "H2",
+        "description": "The system remains live rather than absorbing: total_state_transitions exceeds 10x total_claims.",
+        "metric": "total_state_transitions",
+        "predicted_direction": "increasing",
+        "window": [
+          0,
+          5000
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "run_id": "exp_007_boundary_densify_g0_x0_1031_20260319T002539Z",
+  "experiment_id": "exp_007_boundary_densify_g0_x0",
+  "seed": 1031,
+  "status": "aborted",
+  "failure_type": "missing_scorecard",
+  "failure_message": "Legacy partial run retained with event log only; no terminal scorecard was produced.",
+  "final_basin": null,
+  "metrics": {},
+  "current_tick": 458
+}
