@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this archive, please cite it as below. The concept DOI resolves to the latest version; each version has its own DOI on Zenodo."
+type: dataset
+title: "Epistemic Governance Lab — simulation run archive"
+version: "1.1"
+date-released: 2026-11-06
+authors:
+  - family-names: Bohle
+    given-names: Sebastian
+    orcid: "https://orcid.org/0009-0008-1599-1835"
+    affiliation: "THARP — Thyke Applied Research & Prototyping"
+doi: 10.5281/zenodo.24001501
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24001501
+    description: "Concept DOI (all versions)"
+  - type: doi
+    value: 10.5281/zenodo.24001502
+    description: "Version DOI, v1.0 (6 November 2026)"
+  - type: url
+    value: "https://github.com/tharp-science/eglab-buildday-dataset"
+    description: "Repository"
+repository-code: "https://github.com/tharp-science/eglab-buildday-dataset"
+url: "https://tharp.science"
+license: CC-BY-4.0
+keywords:
+  - agent-based simulation
+  - epistemic governance
+  - authority concentration
+  - provenance
+  - multi-agent systems
+abstract: "705 runs of an agent-based simulation of how authority concentrates in a network of nodes that assert, contest and settle claims under six swappable governance primitives. Every run carries its full configuration, a scorecard of ~40 outcome metrics, a provenance record of the engine version that produced it, and its place in the lab's cohort / hypothesis structure. The archive is offered as a testbed for how independent research agents surface conflicting assumptions without a central reconciler, keeping the disagreement and the provenance rather than collapsing them."
+references:
+  - type: article
+    title: "Governing Epistemic Systems: Primitive Interaction and the Structural Dynamics of Distributed Authority"
+    authors:
+      - family-names: Bohle
+        given-names: Sebastian
+    doi: 10.2139/ssrn.6417898
+    year: 2026
+  - type: software
+    title: epilab
+    authors:
+      - family-names: Bohle
+        given-names: Sebastian
+    repository-code: "https://github.com/tharp-science/epilab"
+    license: MIT

@@ -1,6 +1,6 @@
 # Licence
 
-**Epistemic Governance Lab — simulation run archive, v1.0**
+**Epistemic Governance Lab — simulation run archive, v1.1**
 Prepared 3 November 2026 from the lab's datapack of 2026-11-02T04:17:56Z; revised 6 November 2026.
 
 Licence holder: Sebastian Bohle, THARP — Thyke Applied Research & Prototyping
@@ -17,7 +17,7 @@ They are:
 - `tables/` — all CSV tables
 - `raw/scorecards/`, `raw/manifests/`, `raw/configs/`
 - `raw/eglab_mirror.sqlite` and `raw/datapack-MANIFEST.json`
-- `README.md`, `load.py`, `example.py`, `SHA256SUMS.txt`
+- `README.md`, `CITATION.cff`, `load.py`, `example.py`, `SHA256SUMS.txt`
 
 You may copy, redistribute, transform and build on these files for any purpose,
 including commercially, provided you give attribution (below) and indicate if
@@ -31,8 +31,8 @@ This licence applies to exactly the files whose SHA-256 digests are listed in
 The digest of `SHA256SUMS.txt` itself, at release:
 
 ```
-sha256(SHA256SUMS.txt) = 8105746f03c71ec36a017f126a0cff0ebede7f9904625b158ac0e2ca6abaac0a
-files listed            = 1590
+sha256(SHA256SUMS.txt) = 9a89790d2ffcd6f7fcfd9fdf1f1278b8470eb6a21d81a136c7b37b99bcded21e
+files listed            = 1591
 ```
 
 Verify with `sha256sum SHA256SUMS.txt` and `sha256sum -c SHA256SUMS.txt`. A file
@@ -59,10 +59,10 @@ the lab.
 
 Please cite the data as:
 
-> Bohle, S. (2026). *Epistemic Governance Lab — simulation run archive, v1.0*
+> Bohle, S. (2026). *Epistemic Governance Lab — simulation run archive, v1.1*
 > (prepared 3 Nov 2026 from datapack 2026-11-02, revised 6 Nov 2026;
-> SHA256SUMS digest 8105746f…baac0a). THARP — Thyke Applied Research & Prototyping,
-> https://tharp.science.
+> SHA256SUMS digest 9a89790d…ded21e). THARP — Thyke Applied Research & Prototyping,
+> https://tharp.science. DOI: https://doi.org/10.5281/zenodo.24001501 (all versions).
 > Engine: https://github.com/tharp-science/epilab. Model: Bohle, S. (2026), "Governing
 > Epistemic Systems", SSRN, https://doi.org/10.2139/ssrn.6417898.
 

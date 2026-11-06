@@ -1,4 +1,4 @@
-# Epistemic Governance Lab — simulation run archive, v1.0
+# Epistemic Governance Lab — simulation run archive, v1.1
 
 705 runs of an agent-based simulation of how authority concentrates in a network of nodes
 that assert, contest and settle claims under six swappable governance primitives. Every run
@@ -6,7 +6,8 @@ carries its full configuration, a scorecard of ~40 outcome metrics, a provenance
 engine version that produced it, and its place in the lab's cohort / hypothesis structure.
 
 Prepared 3 November 2026 from the lab's nightly datapack (generated 2026-11-02T04:17:56Z).
-Revised 6 November 2026.
+Revised 6 November 2026. DOI (all versions): https://doi.org/10.5281/zenodo.24001501.
+Repository: https://github.com/tharp-science/eglab-buildday-dataset.
 Engine: https://github.com/tharp-science/epilab (MIT). Model description: Bohle 2026,
 "Governing Epistemic Systems", SSRN doi:10.2139/ssrn.6417898.
 
@@ -76,6 +77,7 @@ them by fiat. That is the exercise.
 
 ```
 README.md                      this file
+CITATION.cff                   citation metadata (DOI, version); GitHub reads it for "Cite this repository"
 LICENSE.md                     CC BY 4.0 for the files listed in SHA256SUMS.txt; scope, attribution, exclusions
 SHA256SUMS.txt                 digest of every file in the package except LICENSE.md
 load.py                        pandas loader:  from load import load; d = load()
@@ -217,7 +219,7 @@ full config per run and `run_metrics.metrics_json` the full scorecard metrics bl
 Source: the lab's nightly datapack (`eglab-datapack.sh` on host `epistemic-lab`), mirrored by
 Syncthing, read on 3 November 2026. Tables derived from the datapack's SQLite mirror; raw
 scorecards, manifests and configs copied unchanged. This edition was first assembled for the
-Claude Impact Lab build day in Berlin (7 November 2026) and is released as v1.0.
+Claude Impact Lab build day in Berlin (7 November 2026) and was first released as v1.0.
 
 **What was held back.** The lab's research vault (138 markdown notes) is not in this package;
 it is the researcher's working notes. The research-management tables (`notes.csv`,
@@ -231,10 +233,13 @@ in it is unchanged.
 
 Prepared with AI assistance (Claude, Anthropic) at the owner's request. Reviewed against the
 lab's sources (preprint, vault, engine code, provenance records) on 6 November 2026; reviewed,
-licensed and revised by the owner on 6 November 2026.
+licensed and revised by the owner on 6 November 2026. v1.1 (same day) adds the Zenodo DOI and
+`CITATION.cff`; the data files are unchanged from v1.0 (Zenodo 10.5281/zenodo.24001502).
 
-**How to cite.** Bohle, S. (2026). *Epistemic Governance Lab — simulation run archive, v1.0.*
-THARP — Thyke Applied Research & Prototyping. CC BY 4.0. SHA256SUMS digest: as stated in `LICENSE.md` (this file is inside the
-sums, so the digest cannot appear here).
+**How to cite.** Bohle, S. (2026). *Epistemic Governance Lab — simulation run archive, v1.1.*
+THARP — Thyke Applied Research & Prototyping. CC BY 4.0. https://doi.org/10.5281/zenodo.24001501
+(concept DOI, resolves to the latest version; each version has its own DOI on Zenodo). The
+SHA256SUMS digest of this release is stated in `LICENSE.md`; this file and `CITATION.cff` are
+inside the sums, so it cannot appear in them.
 
 Contact: Sebastian Bohle, THARP — Thyke Applied Research & Prototyping (https://tharp.science).
